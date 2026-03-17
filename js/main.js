@@ -1,93 +1,187 @@
-/* ============================================
-   AVERONNE.COM — Main JavaScript
-   ============================================ */
+/* ============================================================
+   AVERONNE RESEARCH AND CONSULTING — main.js
+   Navigation, forms, modals, scroll behaviour
+   ============================================================ */
 
 (function () {
   'use strict';
 
-  // --- Navbar scroll effect ---
-  var navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 10) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
+  /* ── Smooth anchor scrolling ──────────────────────────────── */
+  const NAV_HEIGHT = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--nav-height') || '72'
+  );
 
-  // --- Mobile hamburger ---
-  var hamburger = document.querySelector('.hamburger');
-  var navLinks = document.querySelector('.nav-links');
+  function scrollToSection(id) {
+    const target = document.querySelector(id);
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT - 12;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
 
-  hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('open');
-  });
-
-  // Close mobile nav on link click
-  navLinks.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('open');
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      closeMobileMenu();
+      scrollToSection(href);
     });
   });
 
-  // --- Active nav highlighting ---
-  var sections = document.querySelectorAll('section[id]');
-  var navItems = document.querySelectorAll('.nav-links a');
+  /* ── Nav: scroll class + active link ─────────────────────── */
+  const nav = document.querySelector('.nav');
+  const navLinks = document.querySelectorAll('.nav__link');
 
-  function updateActiveNav() {
-    var scrollPos = window.scrollY + 100;
-    sections.forEach(function (section) {
-      var top = section.offsetTop;
-      var height = section.offsetHeight;
-      var id = section.getAttribute('id');
-      if (scrollPos >= top && scrollPos < top + height) {
-        navItems.forEach(function (item) {
-          item.classList.remove('active');
-          if (item.getAttribute('href') === '#' + id) {
-            item.classList.add('active');
-          }
+  function updateNav() {
+    if (!nav) return;
+    if (window.scrollY > 40) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+
+  function updateActiveLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = window.scrollY + NAV_HEIGHT + 60;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollY >= top && scrollY < top + height) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
         });
       }
     });
   }
 
-  window.addEventListener('scroll', updateActiveNav);
-  updateActiveNav();
+  window.addEventListener('scroll', () => {
+    updateNav();
+    updateActiveLink();
+  }, { passive: true });
 
-  // --- Contact form ---
-  var contactForm = document.getElementById('contact-form');
-  var formSuccess = document.getElementById('form-success');
+  updateNav();
+
+  /* ── Mobile hamburger ─────────────────────────────────────── */
+  const hamburger = document.querySelector('.nav__hamburger');
+  const mobileMenu = document.querySelector('.nav__mobile');
+
+  function closeMobileMenu() {
+    if (hamburger) hamburger.classList.remove('open');
+    if (mobileMenu) mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.addEventListener('click', e => {
+      if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+  }
+
+  /* ── Form submit helper (Google Apps Script) ─────────────── */
+  // Apps Script web apps don't support CORS preflight, so we use
+  // mode:'no-cors' with URLSearchParams (simple request, no preflight).
+  // The response is opaque — we show success after the fetch resolves.
+  async function submitToAppsScript(scriptUrl, formEl, extraFields) {
+    const params = new URLSearchParams(new FormData(formEl));
+    if (extraFields) {
+      Object.entries(extraFields).forEach(([k, v]) => params.append(k, v));
+    }
+    await fetch(scriptUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: params
+    });
+    // With no-cors the response is always opaque (indistinguishable from
+    // success/failure). The Apps Script processes the data server-side.
+  }
+
+  /* ── Contact form ─────────────────────────────────────────── */
+  const contactForm = document.getElementById('contact-form');
+  const formWrapper = document.querySelector('.contact-form__form-wrap');
+  const formSuccess = document.querySelector('.form-success');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async e => {
       e.preventDefault();
-      contactForm.style.display = 'none';
-      formSuccess.classList.add('visible');
-    });
-  }
 
-  // --- Sticky CTA visibility ---
-  var stickyCta = document.getElementById('sticky-cta');
-  if (stickyCta) {
-    window.addEventListener('scroll', function () {
-      // Show sticky CTA after scrolling past the hero section
-      if (window.scrollY > window.innerHeight * 0.8) {
-        stickyCta.classList.add('visible');
-      } else {
-        stickyCta.classList.remove('visible');
-      }
+      const btn = contactForm.querySelector('[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
 
-      // Hide when contact section is in view
-      var contactSection = document.getElementById('contact');
-      if (contactSection) {
-        var contactTop = contactSection.offsetTop;
-        var scrollBottom = window.scrollY + window.innerHeight;
-        if (scrollBottom > contactTop + 100) {
-          stickyCta.classList.remove('visible');
+      // Google Apps Script deployment URL
+      // Set data-script-url="https://script.google.com/macros/s/.../exec" on the <form>
+      const SCRIPT_URL = contactForm.dataset.scriptUrl || '';
+
+      try {
+        if (SCRIPT_URL) {
+          await submitToAppsScript(SCRIPT_URL, contactForm, { form_type: 'contact' });
+        } else {
+          // Static success state for local dev / pre-deployment
+          await new Promise(r => setTimeout(r, 600));
         }
+
+        if (formWrapper) formWrapper.style.display = 'none';
+        if (formSuccess) formSuccess.classList.add('visible');
+
+      } catch {
+        btn.textContent = 'Failed — Please Try Again';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 3000);
       }
     });
   }
+
+  /* ── Intersection Observer: fade-in on scroll ─────────────── */
+  const observerOptions = {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(
+    '.area-card, .feature-card, .leader-card--featured, .work-card, .pathway-step, .client-tile'
+  ).forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 3) * 80}ms`;
+    el.classList.add('fade-up');
+    observer.observe(el);
+  });
+
+  /* ── Animate-in CSS injected via JS ─────────────────────── */
+  const animStyle = document.createElement('style');
+  animStyle.textContent = `
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
+  document.head.appendChild(animStyle);
+
 })();

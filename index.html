@@ -1,60 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="India-based field research and methodological support for international academic projects. Structured survey design, qualitative fieldwork, and research coordination led by doctoral researchers with CGIAR field experience." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Averonne Research and Consulting" />
+  <meta property="og:description" content="India-based field research and methodological support for international academic projects. Led by doctoral researchers with CGIAR field experience." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://averonne.com/" />
   <title>Averonne Research and Consulting — Research-Led. Collaboration-Driven.</title>
-  <meta name="description" content="India-based field research and methodological support for international academic projects. Structured survey design, qualitative fieldwork, and research coordination led by doctoral researchers with CGIAR field experience.">
-  <meta property="og:title" content="Averonne Research and Consulting — Research-Led. Collaboration-Driven.">
-  <meta property="og:description" content="India-based field research and methodological support for international academic projects. Led by doctoral researchers with CGIAR field experience.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ==================== NAVIGATION ==================== -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#home" class="navbar-brand">Averonne</a>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#research-areas">Research Areas</a></li>
-        <li><a href="#why-averonne">Why Averonne</a></li>
-        <li><a href="#leadership">The Team</a></li>
-        <li><a href="#past-work">Selected Projects</a></li>
-        <li><a href="#contact" class="nav-cta">Book a Consultation</a></li>
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+
+      <a href="#home" class="nav__brand" aria-label="Averonne Research and Consulting — Home">
+        <span class="nav__brand-name">Averonne</span>
+        <span class="nav__brand-tagline">Research &amp; Consulting</span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#home" class="nav__link active">Home</a></li>
+        <li><a href="#research-areas" class="nav__link">Research Areas</a></li>
+        <li><a href="#why-averonne" class="nav__link">Why Averonne</a></li>
+        <li><a href="#leadership" class="nav__link">The Team</a></li>
+        <li><a href="#past-work" class="nav__link">Selected Projects</a></li>
+        <li><a href="#contact" class="nav__cta">Book a Consultation</a></li>
       </ul>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
+
     </div>
   </nav>
 
-  <!-- ==================== HERO ==================== -->
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <a href="#home" class="nav__mobile-link">Home</a>
+    <a href="#research-areas" class="nav__mobile-link">Research Areas</a>
+    <a href="#why-averonne" class="nav__mobile-link">Why Averonne</a>
+    <a href="#leadership" class="nav__mobile-link">The Team</a>
+    <a href="#past-work" class="nav__mobile-link">Selected Projects</a>
+    <a href="#contact" class="nav__mobile-cta">Book a Consultation</a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 1 — HERO
+  ══════════════════════════════════════════════════════════ -->
   <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>India-Based Field Research and Methodological Support for International Academic Projects.</h1>
-        <p class="subtitle">Averonne provides structured survey design, qualitative fieldwork, and India-based research coordination — led by a Jamia Millia Islamia doctoral researcher with CGIAR field experience.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Book a Research Consultation</a>
-          <a href="#past-work" class="text-link">View selected projects &darr;</a>
-        </div>
+    <div class="hero__inner">
+
+      <div class="hero__label">
+        Averonne Research and Consulting
       </div>
+
+      <div class="hero__divider"></div>
+
+      <h1 class="hero__headline">
+        India-Based Field Research and Methodological Support for <em>International Academic Projects.</em>
+      </h1>
+
+      <p class="hero__subheadline">
+        Averonne provides structured survey design, qualitative fieldwork, and India-based research coordination — led by a Jamia Millia Islamia doctoral researcher with CGIAR field experience.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary">Book a Research Consultation</a>
+        <a href="#past-work" class="text-link">View selected projects &#8595;</a>
+      </div>
+
     </div>
   </section>
 
-  <!-- ==================== WHO WE WORK WITH ==================== -->
-  <section id="who-we-work-with" class="section">
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 2 — WHO WE WORK WITH (NEW)
+  ══════════════════════════════════════════════════════════ -->
+  <section id="who-we-work-with" class="section section--surface">
     <div class="container">
-      <div class="section-header">
-        <h2>Who We Work With</h2>
-      </div>
+
+      <header class="section-header" style="text-align:center;">
+        <h2 class="section-heading">Who We Work With</h2>
+      </header>
+
       <div class="client-tiles">
         <div class="client-tile">International Development Organisations</div>
         <div class="client-tile">Academic Research Institutions</div>
@@ -63,369 +102,646 @@
         <div class="client-tile">Social Impact NGOs</div>
         <div class="client-tile">Independent Researchers &amp; Authors</div>
       </div>
+
     </div>
   </section>
 
-  <!-- ==================== METRICS STRIP ==================== -->
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 3 — METRICS STRIP (NEW)
+  ══════════════════════════════════════════════════════════ -->
   <section class="metrics-strip">
     <div class="container">
       <div class="metrics-grid">
         <div class="metric">
-          <span class="metric-number">350+</span>
-          <span class="metric-label">Survey respondents coordinated</span>
+          <span class="metric__number">350+</span>
+          <span class="metric__label">Survey respondents coordinated</span>
         </div>
-        <div class="metric-divider"></div>
+        <div class="metric__divider"></div>
         <div class="metric">
-          <span class="metric-number">2</span>
-          <span class="metric-label">International research collaborations</span>
+          <span class="metric__number">2</span>
+          <span class="metric__label">International research collaborations</span>
         </div>
-        <div class="metric-divider"></div>
+        <div class="metric__divider"></div>
         <div class="metric">
-          <span class="metric-number">Peer-Review</span>
-          <span class="metric-label">Standard outputs</span>
+          <span class="metric__number">Peer-Review</span>
+          <span class="metric__label">Standard outputs</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== RESEARCH AREAS ==================== -->
-  <section id="research-areas" class="section">
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 4 — RESEARCH AREAS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="research-areas" class="section research-areas">
     <div class="container">
-      <div class="section-header">
-        <h2>Research Areas</h2>
-      </div>
 
-      <div class="research-grid">
+      <header class="section-header">
+        <span class="section-label">Research Areas</span>
+        <h2 class="section-heading">Where We Engage</h2>
+      </header>
 
-        <!-- Block 1: Academic Research (Featured) -->
-        <div class="research-card featured">
-          <h3>Academic Research &amp; Methodological Advisory</h3>
-          <p>We collaborate with researchers, academic institutions, and global organisations on project-based engagements, providing structured methodological support and India-based field research coordination.</p>
-          <ul class="research-bullets">
-            <li>Research architecture and survey framework design tailored to project objectives</li>
-            <li>Statistical and econometric advisory with model validation support</li>
-            <li>Qualitative field research including interviews, focus groups, and on-ground data collection in India</li>
-            <li>Publication-oriented analytical review and reviewer-response structuring</li>
-          </ul>
-        </div>
+      <div class="area-cards">
 
-        <!-- Block 2: Policy Research -->
-        <div class="research-card">
-          <h3>Policy Research &amp; Social Sciences</h3>
-          <p>We bring structured social science methodology to complex policy questions, with particular expertise in social exclusion, inclusive policy, and community-based research in the Indian context.</p>
-          <ul class="research-bullets">
-            <li>Social exclusion and inclusion policy analysis with intersectional frameworks</li>
-            <li>Community-based participatory research and stakeholder engagement</li>
-            <li>Multi-site field research coordination across Indian states</li>
-            <li>Policy briefs, executive summaries, and stakeholder reporting</li>
-          </ul>
-        </div>
-
-        <!-- Block 3: Survey Design -->
-        <div class="research-card">
-          <h3>Survey Design &amp; Data Collection</h3>
-          <p>We design, pilot, and implement structured data collection instruments for academic and applied research mandates.</p>
-          <ul class="research-bullets">
-            <li>Digital and telephonic survey instruments designed and piloted to field-ready standards</li>
-            <li>Mixed-methods data collection combining quantitative surveys with qualitative interviews</li>
-            <li>Data quality assurance, codebook development, and dataset preparation</li>
-            <li>Structured findings reports with visual data representation</li>
-          </ul>
-        </div>
-
-        <!-- Block 4: Documentation -->
-        <div class="research-card">
-          <h3>Documentation &amp; Knowledge Products</h3>
-          <p>We produce research documentation that meets academic and organisational standards of rigour.</p>
-          <ul class="research-bullets">
-            <li>Systematic and narrative literature reviews with cross-disciplinary synthesis</li>
-            <li>Research reports, programme evaluations, and impact assessments</li>
-            <li>Manuscript research assistance with publication-ready editorial support</li>
-            <li>Charts, graphs, and data visualisations for reports and presentations</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== WHY AVERONNE ==================== -->
-  <section id="why-averonne" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Why Averonne</h2>
-        <p>Averonne operates at the intersection of academic rigour and applied research. Our engagements are led by active doctoral researchers who bring current methodological standards, on-ground field experience, and genuine intellectual investment to every project.</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3>Doctoral-Led Research</h3>
-          <p>Our engagements are led by active PhD researchers trained at India's premier institutions, bringing current academic standards and methodological rigour to every mandate.</p>
-        </div>
-        <div class="feature-card">
-          <h3>India Field Capability</h3>
-          <p>Deep, structured experience in on-ground research coordination across India — including mixed-methods field programmes delivered in collaboration with global organisations.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Methodology First</h3>
-          <p>Every engagement begins with a clearly defined research framework. We prioritise analytical clarity and methodological soundness before solution design.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Publication-Ready Standards</h3>
-          <p>Our research output is held to peer-review quality benchmarks — suitable for academic publication, policy use, and organisational reporting.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Global Collaboration Track Record</h3>
-          <p>Demonstrated experience working alongside international development and research organisations operating in South Asia and beyond.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Project-Based &amp; Outcome-Oriented</h3>
-          <p>Clearly defined scope, timelines, and deliverables guide every engagement — with accountability built in from day one.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== HOW WE WORK (Engagement Pathway — moved up) ==================== -->
-  <section id="pathway" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>How We Work</h2>
-        <p>A clear and accountable pathway from first contact to delivery.</p>
-      </div>
-
-      <div class="pathway-steps">
-        <div class="pathway-step">
-          <div class="step-number">01</div>
-          <h3>Scope Review</h3>
-          <p>We assess alignment, clarify research objectives, and define the core problem or question.</p>
-        </div>
-        <div class="pathway-step">
-          <div class="step-number">02</div>
-          <h3>Structured Proposal</h3>
-          <p>We outline scope, methodology, timelines, deliverables, and engagement terms.</p>
-        </div>
-        <div class="pathway-step">
-          <div class="step-number">03</div>
-          <h3>Project Initiation</h3>
-          <p>Work begins with defined milestones, communication cadence, and measurable checkpoints.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== THE TEAM ==================== -->
-  <section id="leadership" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>The Team</h2>
-        <p>Projects draw on a wider network of doctoral researchers and subject specialists as needed.</p>
-      </div>
-
-      <!-- Featured Leader: Malka Zehra -->
-      <div class="leadership-featured">
-        <div class="leader-card-featured">
-          <div class="leader-photo-placeholder">MZ</div>
-          <div class="leader-info">
-            <h3>Malka Zehra</h3>
-            <div class="leader-title">Social Sciences Research Lead</div>
-            <div class="leader-subtitle">PhD Candidate — Social Exclusion and Inclusive Policy</div>
-            <p class="bio">Malka Zehra is a doctoral researcher at Jamia Millia Islamia, currently pursuing her PhD in Social Exclusion and Inclusive Policy. She holds a Gold Medal in her MA from the same institution and brings structured research experience spanning international development organisations, academic fieldwork, and publication support.</p>
-            <p class="bio">At the International Maize and Wheat Improvement Center (CIMMYT), she led the design and implementation of a digital telephonic survey instrument deployed across 350 respondents, delivered qualitative insights to project teams, and authored a comprehensive report on on-farm extension activities. She has additionally contributed research and analytical support to a peer-reviewed academic publication in political sociology.</p>
-            <p class="bio">Her methodological expertise spans both quantitative and qualitative approaches, with particular depth in survey instrument design, field research coordination, and social science research in the Indian context. She is fluent in English, Hindi, and Urdu.</p>
-
-            <div class="credential-logos">
-              <div class="credential-logo">
-                <img src="assets/images/jmi-logo.png" alt="Jamia Millia Islamia">
-                <span>Jamia Millia Islamia</span>
-              </div>
-              <div class="credential-logo">
-                <img src="assets/images/cimmyt-logo.png" alt="CIMMYT">
-                <span>CIMMYT — International Maize and Wheat Improvement Center</span>
-              </div>
+        <!-- Block 1: Featured -->
+        <div class="area-card area-card--featured">
+          <div class="area-card__number">01 — Lead Capability</div>
+          <h3 class="area-card__title">Academic Research &amp; Methodological Advisory</h3>
+          <p class="area-card__body">
+            We collaborate with researchers, academic institutions, and global organisations on project-based engagements, providing structured methodological support and India-based field research coordination.
+          </p>
+          <div class="area-card__sub-items">
+            <div class="sub-item">
+              <div class="sub-item__title">Research Design &amp; Structuring</div>
+              <ul class="sub-item__list">
+                <li>Research architecture development</li>
+                <li>Survey and interview framework design</li>
+                <li>Sampling strategy formulation</li>
+                <li>Hypothesis and research question alignment</li>
+              </ul>
             </div>
-
-            <div class="awards-badges">
-              <span class="badge">Gold Medalist — MA, Jamia Millia Islamia (2022)</span>
-              <span class="badge">Merit Scholar — 2021 &amp; 2022</span>
+            <div class="sub-item">
+              <div class="sub-item__title">Quantitative Analysis Support</div>
+              <ul class="sub-item__list">
+                <li>Statistical model guidance</li>
+                <li>Econometric advisory</li>
+                <li>Variable operationalisation</li>
+                <li>Model validation and robustness checks</li>
+              </ul>
             </div>
-
-            <div class="leader-contact-links">
-              <a href="mailto:Malkaz@averonne.com">Malkaz@averonne.com</a>
-              <a href="https://www.linkedin.com/in/malkazehra/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <div class="sub-item">
+              <div class="sub-item__title">Qualitative Research &amp; Field Support</div>
+              <ul class="sub-item__list">
+                <li>Interview and focus group design</li>
+                <li>Thematic coding frameworks</li>
+                <li>Content and narrative analysis</li>
+                <li>On-ground data collection in India</li>
+                <li>Context-sensitive primary data interpretation</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Publication-Oriented Analytical Review</div>
+              <ul class="sub-item__list">
+                <li>Methodological refinement</li>
+                <li>Analytical consistency review</li>
+                <li>Results interpretation alignment</li>
+                <li>Reviewer-response structuring</li>
+              </ul>
             </div>
           </div>
         </div>
+
+        <!-- Block 2 -->
+        <div class="area-card">
+          <div class="area-card__number">02</div>
+          <h3 class="area-card__title">Policy Research &amp; Social Sciences</h3>
+          <p class="area-card__body">
+            We bring structured social science methodology to complex policy questions, with particular expertise in social exclusion, inclusive policy, and community-based research in the Indian context.
+          </p>
+          <div class="area-card__sub-items">
+            <div class="sub-item">
+              <div class="sub-item__title">Social Policy Analysis</div>
+              <ul class="sub-item__list">
+                <li>Social exclusion and inclusion frameworks</li>
+                <li>Cross-sector policy mapping</li>
+                <li>Welfare programme assessment</li>
+                <li>Intersectional analysis</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Stakeholder &amp; Community Research</div>
+              <ul class="sub-item__list">
+                <li>Community-based participatory research</li>
+                <li>Key informant interviews</li>
+                <li>Focus group design and facilitation</li>
+                <li>Ground-up data interpretation</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">India Field Research Coordination</div>
+              <ul class="sub-item__list">
+                <li>Multi-site data collection</li>
+                <li>Field team coordination</li>
+                <li>Context-sensitive survey administration</li>
+                <li>Institutional liaison</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Research Communication</div>
+              <ul class="sub-item__list">
+                <li>Policy brief drafting</li>
+                <li>Executive research summaries</li>
+                <li>Stakeholder reporting</li>
+                <li>Findings dissemination support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 3 -->
+        <div class="area-card">
+          <div class="area-card__number">03</div>
+          <h3 class="area-card__title">Survey Design &amp; Data Collection</h3>
+          <p class="area-card__body">
+            We design, pilot, and implement structured data collection instruments for academic and applied research mandates.
+          </p>
+          <div class="area-card__sub-items">
+            <div class="sub-item">
+              <div class="sub-item__title">Instrument Design</div>
+              <ul class="sub-item__list">
+                <li>Digital and telephonic survey tools</li>
+                <li>Interview protocols</li>
+                <li>Questionnaire development and piloting</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Mixed Methods Data Collection</div>
+              <ul class="sub-item__list">
+                <li>Quantitative survey administration</li>
+                <li>Qualitative interview programmes</li>
+                <li>Hybrid field methodologies</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Data Quality &amp; Management</div>
+              <ul class="sub-item__list">
+                <li>Response consistency checks</li>
+                <li>Codebook development</li>
+                <li>Data cleaning and preparation</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Reporting &amp; Synthesis</div>
+              <ul class="sub-item__list">
+                <li>Structured findings reports</li>
+                <li>Thematic analysis write-ups</li>
+                <li>Visual data representation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 4 -->
+        <div class="area-card">
+          <div class="area-card__number">04</div>
+          <h3 class="area-card__title">Documentation &amp; Knowledge Products</h3>
+          <p class="area-card__body">
+            We produce research documentation that meets academic and organisational standards of rigour.
+          </p>
+          <div class="area-card__sub-items">
+            <div class="sub-item">
+              <div class="sub-item__title">Literature Review &amp; Synthesis</div>
+              <ul class="sub-item__list">
+                <li>Systematic and narrative review</li>
+                <li>Cross-disciplinary source compilation</li>
+                <li>Annotated bibliographies</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Report Writing</div>
+              <ul class="sub-item__list">
+                <li>Research reports</li>
+                <li>Project evaluation reports</li>
+                <li>Programme impact assessments</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Editorial &amp; Publication Support</div>
+              <ul class="sub-item__list">
+                <li>Manuscript research assistance</li>
+                <li>Proofreading and copy-editing</li>
+                <li>Bibliography and citation management</li>
+                <li>Publication-ready formatting</li>
+              </ul>
+            </div>
+            <div class="sub-item">
+              <div class="sub-item__title">Visual Data Representation</div>
+              <ul class="sub-item__list">
+                <li>Charts, graphs, and data visualisations</li>
+                <li>Infographics for reports and presentations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.area-cards -->
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 5 — WHY AVERONNE
+  ══════════════════════════════════════════════════════════ -->
+  <section id="why-averonne" class="section section--dark">
+    <div class="container">
+
+      <header class="section-header">
+        <h2 class="section-heading">Why Averonne</h2>
+        <p class="section-intro">
+          Averonne operates at the intersection of academic rigour and applied research. Our engagements are led by active doctoral researchers who bring current methodological standards, on-ground field experience, and genuine intellectual investment to every project.
+        </p>
+      </header>
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <h3 class="feature-card__title">Doctoral-Led Research</h3>
+          <p class="feature-card__body">Our engagements are led by active PhD researchers trained at India's premier institutions, bringing current academic standards and methodological rigour to every mandate.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="feature-card__title">India Field Capability</h3>
+          <p class="feature-card__body">Deep, structured experience in on-ground research coordination across India — including mixed-methods field programmes delivered in collaboration with global organisations.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="feature-card__title">Methodology First</h3>
+          <p class="feature-card__body">Every engagement begins with a clearly defined research framework. We prioritise analytical clarity and methodological soundness before solution design.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="feature-card__title">Publication-Ready Standards</h3>
+          <p class="feature-card__body">Our research output is held to peer-review quality benchmarks — suitable for academic publication, policy use, and organisational reporting.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="feature-card__title">Global Collaboration Track Record</h3>
+          <p class="feature-card__body">Demonstrated experience working alongside international development and research organisations operating in South Asia and beyond.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="feature-card__title">Project-Based &amp; Outcome-Oriented</h3>
+          <p class="feature-card__body">Clearly defined scope, timelines, and deliverables guide every engagement — with accountability built in from day one.</p>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 6 — HOW WE WORK (moved up from bottom)
+  ══════════════════════════════════════════════════════════ -->
+  <section id="pathway" class="section pathway">
+    <div class="container">
+
+      <header class="section-header" style="text-align:center;">
+        <h2 class="section-heading">How We Work</h2>
+        <p class="section-intro" style="margin: 0 auto;">
+          A clear and accountable pathway from first contact to delivery.
+        </p>
+      </header>
+
+      <div class="pathway-steps">
+
+        <div class="pathway-step">
+          <div class="pathway-step__number">01</div>
+          <h3 class="pathway-step__title">Scope Review</h3>
+          <p class="pathway-step__body">We assess alignment, clarify research objectives, and define the core problem or question.</p>
+        </div>
+
+        <div class="pathway-step">
+          <div class="pathway-step__number">02</div>
+          <h3 class="pathway-step__title">Structured Proposal</h3>
+          <p class="pathway-step__body">We outline scope, methodology, timelines, deliverables, and engagement terms.</p>
+        </div>
+
+        <div class="pathway-step">
+          <div class="pathway-step__number">03</div>
+          <h3 class="pathway-step__title">Project Initiation</h3>
+          <p class="pathway-step__body">Work begins with defined milestones, communication cadence, and measurable checkpoints.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 7 — THE TEAM
+  ══════════════════════════════════════════════════════════ -->
+  <section id="leadership" class="section leadership">
+    <div class="container">
+
+      <header class="section-header">
+        <h2 class="section-heading">The Team</h2>
+        <p class="section-intro" style="color: var(--color-text-secondary);">
+          Projects draw on a wider network of doctoral researchers and subject specialists as needed.
+        </p>
+      </header>
+
+      <div class="leadership-grid">
+
+        <!-- ── Malka Zehra — Featured Card ── -->
+        <article class="leader-card--featured">
+
+          <div class="leader-card__photo-wrap">
+            <img src="assets/images/malka-zehra.jpg" alt="Malka Zehra — Social Sciences Research Lead" class="leader-card__photo" />
+          </div>
+
+          <div class="leader-card__content">
+            <h2 class="leader-card__name">Malka Zehra</h2>
+            <div class="leader-card__title">Social Sciences Research Lead</div>
+            <div class="leader-card__subtitle">PhD Candidate — Social Exclusion and Inclusive Policy</div>
+
+            <p class="leader-card__bio">
+              Malka Zehra is a doctoral researcher at Jamia Millia Islamia, currently pursuing her PhD in Social Exclusion and Inclusive Policy. She holds a Gold Medal in her MA from the same institution and brings structured research experience spanning international development organisations, academic fieldwork, and publication support.
+            </p>
+            <p class="leader-card__bio">
+              At the International Maize and Wheat Improvement Center (CIMMYT), she led the design and implementation of a digital telephonic survey instrument deployed across 350 respondents, delivered qualitative insights to project teams, and authored a comprehensive report on on-farm extension activities. She has additionally contributed research and analytical support to a peer-reviewed academic publication in political sociology.
+            </p>
+            <p class="leader-card__bio">
+              Her methodological expertise spans both quantitative and qualitative approaches, with particular depth in survey instrument design, field research coordination, and social science research in the Indian context. She is fluent in English, Hindi, and Urdu.
+            </p>
+
+            <!-- Credential Logos -->
+            <div class="credential-logos">
+              <div class="credential-logo-item">
+                <img src="assets/images/jmi-logo.svg" alt="Jamia Millia Islamia" />
+                <span>Jamia Millia<br>Islamia</span>
+              </div>
+              <div class="credential-logo-item">
+                <img src="assets/images/cimmyt-logo.svg" alt="CIMMYT — International Maize and Wheat Improvement Center" />
+                <span>CIMMYT — International Maize<br>and Wheat Improvement Center</span>
+              </div>
+            </div>
+
+            <!-- Award Badges — no emojis -->
+            <div class="award-badges">
+              <span class="award-badge">Gold Medalist — MA, Jamia Millia Islamia (2022)</span>
+              <span class="award-badge">Merit Scholar — 2021 &amp; 2022</span>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="leader-card__contacts">
+              <a href="mailto:Malkaz@averonne.com" class="leader-contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Malkaz@averonne.com
+              </a>
+              <a href="https://www.linkedin.com/in/malkazehra/" target="_blank" rel="noopener noreferrer" class="leader-contact-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+            </div>
+
+          </div>
+        </article>
+
+      </div><!-- /.leadership-grid -->
 
       <p class="team-note">We selectively bring in research collaborators for specific project mandates. Enquiries welcome.</p>
 
     </div>
   </section>
 
-  <!-- ==================== SELECTED PROJECTS ==================== -->
-  <section id="past-work" class="section">
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 8 — SELECTED PROJECTS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="past-work" class="section past-work">
     <div class="container">
-      <div class="section-header">
-        <h2>Selected Projects</h2>
-        <p>A selection of completed project-based engagements. Client and institutional details are anonymised in line with standard research confidentiality practice.</p>
-      </div>
 
-      <div class="past-work-grid">
-        <div class="project-card">
-          <div class="project-meta">
-            <span class="project-sector">International Agricultural Research Organisation (CGIAR Network)</span>
-            <span class="project-year">2024</span>
-          </div>
-          <h3>Agricultural Extension Impact Study</h3>
-          <div class="project-tags">
-            <span class="project-tag">Survey Design</span>
-            <span class="project-tag">Field Research</span>
-            <span class="project-tag">Qualitative Analysis</span>
-            <span class="project-tag">International Development</span>
-          </div>
-          <div class="project-detail">
-            <h4>Challenge</h4>
-            <p>Understanding smallholder farmer adoption of extension programme activities across multiple field sites, requiring primary data collection at scale.</p>
-          </div>
-          <div class="project-detail">
-            <h4>Approach</h4>
-            <p>Designed and piloted a digital telephonic survey instrument. Coordinated field implementation across 350 respondents. Conducted structured qualitative analysis alongside quantitative data collection.</p>
-          </div>
-          <div class="project-detail">
-            <h4>Outcome</h4>
-            <p>Delivered a comprehensive impact report directly informing programme redesign decisions. Findings presented to and adopted by the project team.</p>
-          </div>
-        </div>
+      <header class="section-header">
+        <span class="section-label">Selected Projects</span>
+        <h2 class="section-heading">Selected Research Engagements</h2>
+        <p class="section-intro">
+          A selection of completed project-based engagements. Client and institutional details are anonymised in line with standard research confidentiality practice.
+        </p>
+      </header>
 
-        <div class="project-card">
-          <div class="project-meta">
-            <span class="project-sector">Senior Academic Author — Political Sociology</span>
-            <span class="project-year">2024</span>
+      <div class="work-cards">
+
+        <!-- Project 1 — Challenge / Approach / Outcome format -->
+        <article class="work-card">
+          <div class="work-card__meta">
+            <span class="work-card__sector">International Agricultural Research Organisation (CGIAR Network)</span>
+            <span class="work-card__year">2024</span>
           </div>
-          <h3>Academic Publication Research Support</h3>
-          <div class="project-tags">
-            <span class="project-tag">Literature Review</span>
-            <span class="project-tag">Editorial Support</span>
-            <span class="project-tag">Political Sociology</span>
-            <span class="project-tag">Academic Publishing</span>
+          <h3 class="work-card__title">Agricultural Extension Impact Study</h3>
+          <div class="work-card__tags">
+            <span class="work-tag">Survey Design</span>
+            <span class="work-tag">Field Research</span>
+            <span class="work-tag">Qualitative Analysis</span>
+            <span class="work-tag">International Development</span>
           </div>
-          <div class="project-detail">
-            <h4>Challenge</h4>
-            <p>A peer-reviewed work required comprehensive primary and secondary source research, visual data preparation, and publication-standard editorial support.</p>
+          <div class="work-card__detail">
+            <div class="work-card__detail-label">Challenge</div>
+            <p class="work-card__detail-text">Understanding smallholder farmer adoption of extension programme activities across multiple field sites, requiring primary data collection at scale.</p>
           </div>
-          <div class="project-detail">
-            <h4>Approach</h4>
-            <p>Systematic compilation of primary and secondary sources across archives and databases. Creation of charts, graphs, and visual figures. Proofreading, copy-editing, and bibliography management throughout manuscript development.</p>
+          <div class="work-card__detail">
+            <div class="work-card__detail-label">Approach</div>
+            <p class="work-card__detail-text">Designed and piloted a digital telephonic survey instrument. Coordinated field implementation across 350 respondents. Conducted structured qualitative analysis alongside quantitative data collection.</p>
           </div>
-          <div class="project-detail">
-            <h4>Outcome</h4>
-            <p>Manuscript delivered to publication-ready standard. Successfully published as a peer-reviewed work in political sociology.</p>
+          <div class="work-card__detail">
+            <div class="work-card__detail-label">Outcome</div>
+            <p class="work-card__detail-text">Delivered a comprehensive impact report directly informing programme redesign decisions. Findings presented to and adopted by the project team.</p>
           </div>
-        </div>
+        </article>
+
+        <!-- Project 2 — Challenge / Approach / Outcome format -->
+        <article class="work-card">
+          <div class="work-card__meta">
+            <span class="work-card__sector">Senior Academic Author — Political Sociology</span>
+            <span class="work-card__year">2024</span>
+          </div>
+          <h3 class="work-card__title">Academic Publication Research Support</h3>
+          <div class="work-card__tags">
+            <span class="work-tag">Literature Review</span>
+            <span class="work-tag">Editorial Support</span>
+            <span class="work-tag">Political Sociology</span>
+            <span class="work-tag">Academic Publishing</span>
+          </div>
+          <div class="work-card__detail">
+            <div class="work-card__detail-label">Challenge</div>
+            <p class="work-card__detail-text">A peer-reviewed work required comprehensive primary and secondary source research, visual data preparation, and publication-standard editorial support.</p>
+          </div>
+          <div class="work-card__detail">
+            <div class="work-card__detail-label">Approach</div>
+            <p class="work-card__detail-text">Systematic compilation of primary and secondary sources across archives and databases. Creation of charts, graphs, and visual figures. Proofreading, copy-editing, and bibliography management throughout manuscript development.</p>
+          </div>
+          <div class="work-card__detail">
+            <div class="work-card__detail-label">Outcome</div>
+            <p class="work-card__detail-text">Manuscript delivered to publication-ready standard. Successfully published as a peer-reviewed work in political sociology.</p>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- ==================== CONTACT / BOOK A CONSULTATION ==================== -->
-  <section id="contact" class="section section-alt">
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 9 — BOOK A CONSULTATION
+  ══════════════════════════════════════════════════════════ -->
+  <section id="contact" class="section contact">
     <div class="container">
-      <div class="section-header">
-        <h2>Book a Consultation</h2>
-        <p>If you would like to discuss a potential research collaboration or engagement, share a brief outline of your requirement. We will review and respond within 48 hours.</p>
-        <div class="contact-emails">
-          <p>General Inquiries: <a href="mailto:headoffice@averonne.com">headoffice@averonne.com</a></p>
-          <p>Research Lead: <a href="mailto:Malkaz@averonne.com">Malkaz@averonne.com</a></p>
-        </div>
-      </div>
+      <div class="contact__grid">
 
-      <div class="contact-wrapper">
-        <form id="contact-form">
-          <div class="form-group">
-            <label for="name">Name *</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="organisation">Organisation / Institution *</label>
-            <input type="text" id="organisation" name="organisation" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="engagement-type">Engagement Type</label>
-            <select id="engagement-type" name="engagement-type">
-              <option value="">Select an engagement type</option>
-              <option value="academic-research">Academic Research Collaboration</option>
-              <option value="methodological-advisory">Methodological Advisory</option>
-              <option value="field-research">Field Research Support</option>
-              <option value="publication-documentation">Publication &amp; Documentation</option>
-              <option value="other">Other / Not yet defined</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="description">Brief Description *</label>
-            <textarea id="description" name="description" required placeholder="Outline your research requirement or collaboration interest..."></textarea>
-          </div>
-          <div class="form-group">
-            <label for="timeline">Timeline (optional)</label>
-            <input type="text" id="timeline" name="timeline" placeholder="e.g., Q2 2025, 3 months, flexible">
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
-          <p class="form-note">All inquiries are handled confidentially.</p>
-        </form>
+        <!-- Left: info -->
+        <div>
+          <span class="section-label">Get in Touch</span>
+          <h2 class="contact__info-title">Book a Consultation</h2>
+          <p class="contact__info-text">
+            If you would like to discuss a potential research collaboration or engagement, share a brief outline of your requirement. We will review and respond within 48 hours.
+          </p>
 
-        <div id="form-success" class="form-success">
-          <h3>Inquiry Received</h3>
-          <p>We will review your submission and respond within 48 hours.</p>
+          <div class="contact__info-details">
+            <div class="contact-detail">
+              <span class="contact-detail__label">Research Lead</span>
+              <span class="contact-detail__value">
+                <a href="mailto:Malkaz@averonne.com">Malkaz@averonne.com</a>
+              </span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">General Inquiries</span>
+              <span class="contact-detail__value">
+                <a href="mailto:headoffice@averonne.com">headoffice@averonne.com</a>
+              </span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">Location</span>
+              <span class="contact-detail__value">New Delhi, India</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail__label">Response Time</span>
+              <span class="contact-detail__value">Within 48 hours</span>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <!-- Right: form -->
+        <div class="contact-form">
+
+          <div class="contact-form__form-wrap">
+            <form id="contact-form" data-script-url="https://script.google.com/a/macros/averonne.com/s/AKfycbxzim-4HeEYEQgbxC7GguyBtwybZLA13jHXZlmMllG_0Uc0Z9cXjo_Tmup-yLRXMpvl/exec" novalidate>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Name <span class="required">*</span></label>
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-org">Organisation / Institution <span class="required">*</span></label>
+                  <input type="text" id="contact-org" name="organisation" class="form-input" placeholder="Your institution or organisation" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email <span class="required">*</span></label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-type">Engagement Type <span class="required">*</span></label>
+                <select id="contact-type" name="engagement_type" class="form-select" required>
+                  <option value="" disabled selected>Select engagement type</option>
+                  <option value="academic-research">Academic Research Collaboration</option>
+                  <option value="methodological-advisory">Methodological Advisory</option>
+                  <option value="field-research">Field Research Support</option>
+                  <option value="publication-documentation">Publication &amp; Documentation</option>
+                  <option value="other">Other / Not yet defined</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-description">Brief Description <span class="required">*</span></label>
+                <textarea id="contact-description" name="description" class="form-textarea" rows="5" placeholder="Please describe your research requirement or question..." required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-timeline">Timeline <span style="font-weight:400; text-transform:none; letter-spacing:0; color:rgba(255,255,255,0.35);">(optional)</span></label>
+                <input type="text" id="contact-timeline" name="timeline" class="form-input" placeholder="e.g. Q2 2025, flexible, 3 months from start" />
+              </div>
+
+              <div class="form-submit">
+                <p class="form-confidentiality">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  All inquiries are handled confidentially.
+                </p>
+                <button type="submit" class="btn btn--primary">Submit Inquiry</button>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="form-success">
+            <div class="form-success__icon">&#10003;</div>
+            <h3 class="form-success__title">Inquiry Received</h3>
+            <p class="form-success__body">We will review your submission and respond within 48 hours.</p>
+          </div>
+
+        </div><!-- /.contact-form -->
+      </div><!-- /.contact__grid -->
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>Averonne Research and Consulting</h3>
-          <p class="tagline">Academic research consultancy with India-based doctoral researchers and global field experience.</p>
-        </div>
-        <div>
-          <h4>Navigate</h4>
-          <ul class="footer-links">
-            <li><a href="#research-areas">Research Areas</a></li>
-            <li><a href="#why-averonne">Why Averonne</a></li>
-            <li><a href="#leadership">The Team</a></li>
-            <li><a href="#past-work">Selected Projects</a></li>
-            <li><a href="#pathway">How We Work</a></li>
-            <li><a href="#contact">Book a Consultation</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>Contact</h4>
-          <p>General Inquiries:<br><a href="mailto:headoffice@averonne.com">headoffice@averonne.com</a></p>
-          <p>Research Lead:<br><a href="mailto:Malkaz@averonne.com">Malkaz@averonne.com</a></p>
-          <p class="footer-location">New Delhi, India</p>
-        </div>
-      </div>
 
-      <!-- Internship note in footer -->
-      <div class="footer-internship">
+      <div class="footer__grid">
+
+        <!-- Brand column -->
+        <div>
+          <div class="footer__brand-name">Averonne</div>
+          <div class="footer__brand-tagline">Research-Led. Collaboration-Driven.</div>
+          <p class="footer__brand-desc">
+            Academic research consultancy with India-based doctoral researchers and global field experience. Project-based engagements. Peer-review standards.
+          </p>
+        </div>
+
+        <!-- Navigation column -->
+        <div>
+          <div class="footer__col-heading">Navigate</div>
+          <nav class="footer__nav" aria-label="Footer navigation">
+            <a href="#research-areas" class="footer__nav-link">Research Areas</a>
+            <a href="#why-averonne" class="footer__nav-link">Why Averonne</a>
+            <a href="#leadership" class="footer__nav-link">The Team</a>
+            <a href="#past-work" class="footer__nav-link">Selected Projects</a>
+            <a href="#pathway" class="footer__nav-link">How We Work</a>
+            <a href="#contact" class="footer__nav-link">Book a Consultation</a>
+          </nav>
+        </div>
+
+        <!-- Contact column -->
+        <div>
+          <div class="footer__col-heading">Contact</div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">General Inquiries</span>
+            <a href="mailto:headoffice@averonne.com" class="footer__contact-value">headoffice@averonne.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">Research Lead</span>
+            <a href="mailto:Malkaz@averonne.com" class="footer__contact-value">Malkaz@averonne.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">Location</span>
+            <span class="footer__contact-value">New Delhi, India</span>
+          </div>
+        </div>
+
+      </div><!-- /.footer__grid -->
+
+      <!-- Internship note (moved from main page section) -->
+      <div class="footer__internship">
         <p><strong>Research Internships:</strong> We engage with a limited number of students interested in structured academic research. Internship engagements are project-based and aligned with active research mandates. <a href="mailto:headoffice@averonne.com">Apply via email</a>.</p>
       </div>
 
-      <div class="footer-bottom">
-        &copy; 2025 Averonne Research and Consulting. All rights reserved.
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2025 Averonne Research and Consulting. All rights reserved.</span>
+        <div class="footer__bottom-links">
+          <a href="mailto:headoffice@averonne.com" class="footer__bottom-link">Contact</a>
+        </div>
       </div>
+
     </div>
   </footer>
 
-  <!-- Sticky CTA -->
-  <div class="sticky-cta" id="sticky-cta">
-    <a href="#contact" class="btn btn-primary btn-sticky">Book a Research Consultation</a>
-  </div>
 
   <script src="js/main.js"></script>
 </body>
