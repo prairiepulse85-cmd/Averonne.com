@@ -89,6 +89,24 @@
     });
   }
 
+  /* ── Form submit helper (Google Apps Script) ─────────────── */
+  // Apps Script web apps don't support CORS preflight, so we use
+  // mode:'no-cors' with URLSearchParams (simple request, no preflight).
+  // The response is opaque — we show success after the fetch resolves.
+  async function submitToAppsScript(scriptUrl, formEl, extraFields) {
+    const params = new URLSearchParams(new FormData(formEl));
+    if (extraFields) {
+      Object.entries(extraFields).forEach(([k, v]) => params.append(k, v));
+    }
+    await fetch(scriptUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: params
+    });
+    // With no-cors the response is always opaque (indistinguishable from
+    // success/failure). The Apps Script processes the data server-side.
+  }
+
   /* ── Contact form ─────────────────────────────────────────── */
   const contactForm = document.getElementById('contact-form');
   const formWrapper = document.querySelector('.contact-form__form-wrap');
@@ -103,20 +121,15 @@
       btn.textContent = 'Sending…';
       btn.disabled = true;
 
-      // Formspree endpoint — replace FORM_ID with actual ID once deployed
-      const FORMSPREE_ENDPOINT = contactForm.dataset.formspree || '';
+      // Google Apps Script deployment URL
+      // Set data-script-url="https://script.google.com/macros/s/.../exec" on the <form>
+      const SCRIPT_URL = contactForm.dataset.scriptUrl || '';
 
       try {
-        if (FORMSPREE_ENDPOINT) {
-          const data = new FormData(contactForm);
-          const res = await fetch(FORMSPREE_ENDPOINT, {
-            method: 'POST',
-            body: data,
-            headers: { Accept: 'application/json' }
-          });
-          if (!res.ok) throw new Error('Server error');
+        if (SCRIPT_URL) {
+          await submitToAppsScript(SCRIPT_URL, contactForm, { form_type: 'contact' });
         } else {
-          // Static success state for dev / pre-deployment
+          // Static success state for local dev / pre-deployment
           await new Promise(r => setTimeout(r, 600));
         }
 
@@ -177,11 +190,17 @@
     internshipForm.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = internshipForm.querySelector('[type="submit"]');
-      const originalText = btn.textContent;
       btn.textContent = 'Sending…';
       btn.disabled = true;
 
-      await new Promise(r => setTimeout(r, 600));
+      // Reuse the same Apps Script URL as the contact form
+      const SCRIPT_URL = contactForm ? (contactForm.dataset.scriptUrl || '') : '';
+
+      if (SCRIPT_URL) {
+        await submitToAppsScript(SCRIPT_URL, internshipForm, { form_type: 'internship' });
+      } else {
+        await new Promise(r => setTimeout(r, 600));
+      }
 
       if (internshipFormWrap) internshipFormWrap.style.display = 'none';
       if (internshipSuccess) internshipSuccess.classList.add('visible');
