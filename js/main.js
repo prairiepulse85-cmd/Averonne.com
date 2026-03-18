@@ -146,67 +146,6 @@
     });
   }
 
-  /* ── Internship modal ─────────────────────────────────────── */
-  const internshipBtn = document.getElementById('internship-btn');
-  const internshipModal = document.getElementById('internship-modal');
-  const internshipForm = document.getElementById('internship-form');
-  const internshipSuccess = document.querySelector('#internship-modal .form-success');
-  const internshipFormWrap = document.querySelector('#internship-modal .modal__form-wrap');
-
-  function openModal(modal) {
-    if (!modal) return;
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    const firstInput = modal.querySelector('input, select, textarea');
-    if (firstInput) setTimeout(() => firstInput.focus(), 100);
-  }
-
-  function closeModal(modal) {
-    if (!modal) return;
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  if (internshipBtn) {
-    internshipBtn.addEventListener('click', () => openModal(internshipModal));
-  }
-
-  document.querySelectorAll('.modal__close, .modal-overlay').forEach(el => {
-    el.addEventListener('click', e => {
-      if (e.target === el) {
-        const modal = el.closest('.modal-overlay') || document.querySelector('.modal-overlay');
-        closeModal(modal);
-      }
-    });
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m));
-    }
-  });
-
-  if (internshipForm) {
-    internshipForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      const btn = internshipForm.querySelector('[type="submit"]');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      // Reuse the same Apps Script URL as the contact form
-      const SCRIPT_URL = contactForm ? (contactForm.dataset.scriptUrl || '') : '';
-
-      if (SCRIPT_URL) {
-        await submitToAppsScript(SCRIPT_URL, internshipForm, { form_type: 'internship' });
-      } else {
-        await new Promise(r => setTimeout(r, 600));
-      }
-
-      if (internshipFormWrap) internshipFormWrap.style.display = 'none';
-      if (internshipSuccess) internshipSuccess.classList.add('visible');
-    });
-  }
-
   /* ── Intersection Observer: fade-in on scroll ─────────────── */
   const observerOptions = {
     threshold: 0.08,
@@ -223,7 +162,7 @@
   }, observerOptions);
 
   document.querySelectorAll(
-    '.area-card, .feature-card, .leader-card, .leader-card--featured, .work-card, .pathway-step'
+    '.area-card, .feature-card, .leader-card--featured, .work-card, .pathway-step, .client-tile'
   ).forEach((el, i) => {
     el.style.transitionDelay = `${(i % 3) * 80}ms`;
     el.classList.add('fade-up');

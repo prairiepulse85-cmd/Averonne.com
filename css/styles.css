@@ -1505,5 +1505,148 @@ h1, h2, h3, h4, h5 {
   .hero__actions { flex-direction: column; align-items: flex-start; }
   .credential-logos { gap: var(--space-4); }
   .contact-form { padding: var(--space-6); }
-  .modal { padding: var(--space-6); }
+}
+
+/* ── Who We Work With (NEW) ────────────────────────────────── */
+.client-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.client-tile {
+  text-align: center;
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  transition: all var(--transition-base);
+}
+
+.client-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(201,168,76,0.3);
+}
+
+/* ── Metrics Strip (NEW) ───────────────────────────────────── */
+.metrics-strip {
+  background: var(--color-bg-secondary);
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.metrics-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric__number {
+  display: block;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  line-height: 1.2;
+  margin-bottom: var(--space-1);
+}
+
+.metric__label {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light-muted);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.metric__divider {
+  width: 1px;
+  height: 48px;
+  background: var(--color-border-dark);
+}
+
+/* ── Team Note ─────────────────────────────────────────────── */
+.team-note {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: var(--space-8);
+}
+
+/* ── Work Card Detail Format (Challenge/Approach/Outcome) ── */
+.work-card__detail {
+  margin-bottom: var(--space-4);
+}
+
+.work-card__detail:last-child {
+  margin-bottom: 0;
+}
+
+.work-card__detail-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-1);
+}
+
+.work-card__detail-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light-muted);
+  line-height: var(--line-height-loose);
+}
+
+/* ── Footer Internship Note ────────────────────────────────── */
+.footer__internship {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.footer__internship p {
+  font-size: var(--font-size-xs);
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+}
+
+.footer__internship a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.footer__internship a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ── Responsive additions for new sections ─────────────────── */
+@media (max-width: 768px) {
+  .client-tiles { grid-template-columns: repeat(2, 1fr); }
+
+  .metrics-grid {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .metric__divider {
+    width: 48px;
+    height: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-tiles { grid-template-columns: 1fr; }
 }
