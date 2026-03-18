@@ -901,7 +901,7 @@ h1, h2, h3, h4, h5 {
 
 /* ── Past Work ──────────────────────────────────────────────── */
 .past-work {
-  background: var(--color-bg-primary);
+  background: var(--color-bg-secondary);
   color: var(--color-text-light);
 }
 
@@ -1005,7 +1005,7 @@ h1, h2, h3, h4, h5 {
 
 /* ── Engagement Pathway ─────────────────────────────────────── */
 .pathway {
-  background: var(--color-bg-surface);
+  background: var(--color-bg-white);
 }
 
 .pathway-steps {
@@ -1769,9 +1769,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .footer__internship p {
-  font-size: var(--font-size-xs);
-  color: rgba(255,255,255,0.45);
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.60);
   text-align: center;
+  font-weight: var(--font-weight-medium);
 }
 
 .footer__internship a {
