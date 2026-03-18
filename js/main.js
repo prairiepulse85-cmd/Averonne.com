@@ -162,7 +162,7 @@
   }, observerOptions);
 
   document.querySelectorAll(
-    '.area-card, .feature-card, .leader-card--featured, .work-card, .pathway-step, .client-tile'
+    '.area-card, .feature-card, .leader-profile, .advisory-card, .work-card, .pathway-step'
   ).forEach((el, i) => {
     el.style.transitionDelay = `${(i % 3) * 80}ms`;
     el.classList.add('fade-up');

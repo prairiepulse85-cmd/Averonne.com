@@ -1434,14 +1434,10 @@ h1, h2, h3, h4, h5 {
     --section-padding-y: 5rem;
   }
 
-  .area-card--featured .area-card__sub-items {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .leader-card--featured {
-    grid-template-columns: 260px 1fr;
+  .leader-profile {
+    grid-template-columns: 200px 1fr;
   }
 
   .contact__grid {
@@ -1470,18 +1466,17 @@ h1, h2, h3, h4, h5 {
 
   .area-cards { grid-template-columns: 1fr; }
   .area-card--featured { grid-column: 1; }
-  .area-card--featured .area-card__sub-items { grid-template-columns: 1fr 1fr; }
-  .area-card__sub-items { grid-template-columns: 1fr; }
 
-  .feature-grid { grid-template-columns: 1fr; }
+  .feature-grid,
+  .feature-grid--2x2 { grid-template-columns: 1fr; }
 
-  .leader-card--featured {
-    grid-column: 1;
+  .leader-profile {
     grid-template-columns: 1fr;
   }
-  .leader-card--featured .leader-card__photo-placeholder { min-height: 240px; }
-  .leader-card--featured .leader-card__content { padding: var(--space-8); }
-  .leadership-grid { grid-template-columns: 1fr; }
+  .leader-profile__photo-wrap { min-height: 250px; }
+  .leader-profile__avatar { min-height: 250px; }
+
+  .advisory-grid { grid-template-columns: 1fr; }
 
   .work-cards { grid-template-columns: 1fr; }
 
@@ -1507,83 +1502,239 @@ h1, h2, h3, h4, h5 {
   .contact-form { padding: var(--space-6); }
 }
 
-/* ── Who We Work With (NEW) ────────────────────────────────── */
-.client-tiles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
-  max-width: 900px;
-  margin: 0 auto;
+/* ── Hero Audience Bar ─────────────────────────────────────── */
+.hero__audience-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
 }
 
-.client-tile {
-  text-align: center;
-  padding: var(--space-5) var(--space-6);
+.audience-pill {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-3);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-pill);
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+}
+
+/* ── Area Card Outputs (new streamlined format) ───────────── */
+.area-card__outputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.area-card__output {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.area-card--featured .area-card__output {
+  color: rgba(255,255,255,0.65);
+}
+
+.area-card__track-record {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  letter-spacing: 0.02em;
+}
+
+.area-card--featured .area-card__track-record {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
+/* ── Why Averonne 2x2 grid ────────────────────────────────── */
+.feature-grid--2x2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── Leadership Profiles (Tier 1) ─────────────────────────── */
+.leadership-profiles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.leader-profile {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-8);
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
   transition: all var(--transition-base);
 }
 
-.client-tile:hover {
-  transform: translateY(-2px);
+.leader-profile:hover {
   box-shadow: var(--shadow-card-hover);
-  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-2px);
 }
 
-/* ── Metrics Strip (NEW) ───────────────────────────────────── */
-.metrics-strip {
-  background: var(--color-bg-secondary);
-  padding: var(--space-10) 0;
-  border-top: 1px solid var(--color-border-dark);
-  border-bottom: 1px solid var(--color-border-dark);
+.leader-profile__photo-wrap {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba(201,168,76,0.08), var(--color-bg-surface));
+  min-height: 300px;
 }
 
-.metrics-grid {
+.leader-profile__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.leader-profile__avatar {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-12);
-}
-
-.metric {
-  text-align: center;
-}
-
-.metric__number {
-  display: block;
-  font-size: var(--font-size-3xl);
+  font-size: 3.5rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-accent);
-  line-height: 1.2;
+  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+  letter-spacing: 0.05em;
+}
+
+.leader-profile__content {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leader-profile__name {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-1);
 }
 
-.metric__label {
-  display: block;
-  font-size: var(--font-size-xs);
-  color: var(--color-text-light-muted);
-  font-weight: var(--font-weight-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.leader-profile__role {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  margin-bottom: var(--space-1);
 }
 
-.metric__divider {
-  width: 1px;
-  height: 48px;
-  background: var(--color-border-dark);
-}
-
-/* ── Team Note ─────────────────────────────────────────────── */
-.team-note {
-  text-align: center;
+.leader-profile__affiliation {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   font-style: italic;
-  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.leader-profile__bio {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.leader-profile__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.leader-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-3);
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius-pill);
+  color: var(--color-accent);
+}
+
+/* ── Advisory Section (Tier 2) ────────────────────────────── */
+.advisory-section__heading {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.advisory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.advisory-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: all var(--transition-base);
+}
+
+.advisory-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.advisory-card__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.advisory-card__body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-4);
+}
+
+.advisory-card__meta {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Trust Signals ────────────────────────────────────────── */
+.contact__trust-signals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.trust-signal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.55);
+}
+
+.trust-signal svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
 
 /* ── Work Card Detail Format (Challenge/Approach/Outcome) ── */
@@ -1634,19 +1785,14 @@ h1, h2, h3, h4, h5 {
 
 /* ── Responsive additions for new sections ─────────────────── */
 @media (max-width: 768px) {
-  .client-tiles { grid-template-columns: repeat(2, 1fr); }
-
-  .metrics-grid {
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-
-  .metric__divider {
-    width: 48px;
-    height: 1px;
+  .hero__audience-bar {
+    gap: var(--space-2);
   }
 }
 
 @media (max-width: 480px) {
-  .client-tiles { grid-template-columns: 1fr; }
+  .hero__audience-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
