@@ -1769,9 +1769,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .footer__internship p {
-  font-size: var(--font-size-xs);
-  color: rgba(255,255,255,0.45);
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.60);
   text-align: center;
+  font-weight: var(--font-weight-medium);
 }
 
 .footer__internship a {
