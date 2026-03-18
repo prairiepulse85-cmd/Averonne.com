@@ -495,7 +495,7 @@ h1, h2, h3, h4, h5 {
 
 .area-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
 }
 
@@ -530,13 +530,6 @@ h1, h2, h3, h4, h5 {
 
 .area-card:hover::before { transform: scaleX(1); }
 
-.area-card--featured {
-  grid-column: 1 / -1;
-  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-  color: var(--color-text-light);
-  border-color: rgba(201,168,76,0.2);
-}
-.area-card--featured::before { transform: scaleX(1); }
 
 .area-card__number {
   font-size: var(--font-size-xs);
@@ -554,10 +547,6 @@ h1, h2, h3, h4, h5 {
   color: inherit;
 }
 
-.area-card--featured .area-card__title {
-  color: var(--color-text-light);
-}
-
 .area-card__body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-loose);
@@ -565,18 +554,10 @@ h1, h2, h3, h4, h5 {
   margin-bottom: var(--space-6);
 }
 
-.area-card--featured .area-card__body {
-  color: var(--color-text-light-muted);
-}
-
 .area-card__sub-items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
-}
-
-.area-card--featured .area-card__sub-items {
-  grid-template-columns: repeat(4, 1fr);
 }
 
 .sub-item__title {
