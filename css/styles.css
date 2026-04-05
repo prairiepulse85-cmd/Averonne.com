@@ -1845,6 +1845,13 @@ h1, h2, h3, h4, h5 {
   border-color: rgba(201,168,76,0.4);
 }
 
+.area-card__body--accent {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
 .area-card__tiers {
   display: flex;
   flex-direction: column;
