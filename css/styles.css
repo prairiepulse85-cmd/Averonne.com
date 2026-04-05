@@ -1417,6 +1417,14 @@ h1, h2, h3, h4, h5 {
   }
 
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid--2x2 { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid--2x2 .feature-card:nth-child(1),
+  .feature-grid--2x2 .feature-card:nth-child(2),
+  .feature-grid--2x2 .feature-card:nth-child(3),
+  .feature-grid--2x2 .feature-card:nth-child(4),
+  .feature-grid--2x2 .feature-card:nth-child(5) {
+    grid-column: auto;
+  }
 
   .leader-profile {
     grid-template-columns: 200px 1fr;
@@ -1451,6 +1459,14 @@ h1, h2, h3, h4, h5 {
 
   .feature-grid,
   .feature-grid--2x2 { grid-template-columns: 1fr; }
+
+  .feature-grid--2x2 .feature-card:nth-child(1),
+  .feature-grid--2x2 .feature-card:nth-child(2),
+  .feature-grid--2x2 .feature-card:nth-child(3),
+  .feature-grid--2x2 .feature-card:nth-child(4),
+  .feature-grid--2x2 .feature-card:nth-child(5) {
+    grid-column: 1;
+  }
 
   .leader-profile {
     grid-template-columns: 1fr;
@@ -1535,9 +1551,23 @@ h1, h2, h3, h4, h5 {
   border-top-color: rgba(255,255,255,0.1);
 }
 
-/* ── Why Averonne 2x2 grid ────────────────────────────────── */
+/* ── Why Averonne grid (5 cards: 3 top, 2 bottom centered) ── */
 .feature-grid--2x2 {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.feature-grid--2x2 .feature-card:nth-child(1),
+.feature-grid--2x2 .feature-card:nth-child(2),
+.feature-grid--2x2 .feature-card:nth-child(3) {
+  grid-column: span 2;
+}
+
+.feature-grid--2x2 .feature-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.feature-grid--2x2 .feature-card:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 /* ── Leadership Profiles (Tier 1) ─────────────────────────── */
@@ -1766,10 +1796,266 @@ h1, h2, h3, h4, h5 {
   color: var(--color-accent-hover);
 }
 
+/* ── When You Need Averonne ────────────────────────────────── */
+.when-you-need {
+  background: var(--color-bg-surface);
+}
+
+.trigger-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.trigger-item {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+  padding: var(--space-4) var(--space-6);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg-white);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* ── Research Areas — 4+ services grid ────────────────────── */
+.area-cards--four {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Navy card for AI Risk Audit */
+.area-card--navy {
+  background: var(--color-bg-primary);
+  color: var(--color-text-light);
+  border-color: rgba(201,168,76,0.2);
+}
+
+.area-card--navy .area-card__body {
+  color: var(--color-text-light-muted);
+}
+
+.area-card--navy .area-card__output {
+  color: rgba(255,255,255,0.65);
+}
+
+.area-card--navy .area-card__track-record {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
+.area-card--navy:hover {
+  border-color: rgba(201,168,76,0.4);
+}
+
+.area-card__body--accent {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+.area-card__tiers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.area-card__tier {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+}
+
+/* ── The Averonne Research Brief ──────────────────────────── */
+.research-brief .section-intro {
+  color: var(--color-text-light-muted);
+}
+
+.brief-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.brief-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.brief-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+
+.brief-card__scope {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light-muted);
+  font-style: italic;
+  margin-bottom: var(--space-5);
+}
+
+.brief-card__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.brief-card__item {
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.65);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.brief-card__item:last-child {
+  border-bottom: none;
+}
+
+.brief-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light-muted);
+  line-height: var(--line-height-loose);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Why Averonne — 5-card grid ──────────────────────────── */
+/* With 5 cards: 3 on top row, 2 on bottom — centered */
+
+/* ── Leader Profile Scope Line ───────────────────────────── */
+.leader-profile__scope {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+  font-style: italic;
+}
+
+/* ── Advisory Lead Responsibility ────────────────────────── */
+.advisory-card__lead {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+  font-style: italic;
+}
+
+/* ── CIMMYT Evidence Block ───────────────────────────────── */
+.evidence-block {
+  margin-top: var(--space-12);
+  padding: var(--space-8);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-bg-primary);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.evidence-block__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.evidence-block__org {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.evidence-block__body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-3);
+}
+
+.evidence-block__body:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Start Here Section ──────────────────────────────────── */
+.start-here {
+  background: var(--color-bg-surface);
+}
+
+.start-here__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.start-here__card {
+  padding: var(--space-10);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.start-here__card--parchment {
+  background: var(--color-bg-surface);
+  border-color: rgba(201,168,76,0.25);
+}
+
+.start-here__card--white {
+  background: var(--color-bg-white);
+}
+
+.start-here__card-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.start-here__card-body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-6);
+  flex: 1;
+}
+
+.start-here__cta {
+  align-self: flex-start;
+}
+
 /* ── Responsive additions for new sections ─────────────────── */
+@media (max-width: 1024px) {
+  .area-cards--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .hero__audience-bar {
     gap: var(--space-2);
+  }
+
+  .area-cards--four {
+    grid-template-columns: 1fr;
+  }
+
+  .brief-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .start-here__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .trigger-item {
+    font-size: var(--font-size-base);
+    padding: var(--space-3) var(--space-4);
   }
 }
 

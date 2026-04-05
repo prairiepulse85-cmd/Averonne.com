@@ -146,6 +146,43 @@
     });
   }
 
+  /* ── URL parameter pre-selection for engagement type ──────── */
+  const urlParams = new URLSearchParams(window.location.search);
+  const typeParam = urlParams.get('type');
+  if (typeParam) {
+    const dropdown = document.getElementById('contact-type');
+    if (dropdown) {
+      const paramMap = {
+        'ai-snapshot': 'ai-snapshot',
+        'scope-review': 'social-science-field'
+      };
+      const mappedValue = paramMap[typeParam];
+      if (mappedValue) {
+        dropdown.value = mappedValue;
+      }
+    }
+  }
+
+  /* ── Start Here CTA: scroll to contact + pre-select type ─── */
+  document.querySelectorAll('.start-here__cta').forEach(function(cta) {
+    cta.addEventListener('click', function(e) {
+      e.preventDefault();
+      var dataType = cta.getAttribute('data-type');
+      var dropdown = document.getElementById('contact-type');
+      if (dropdown && dataType) {
+        var paramMap = {
+          'ai-snapshot': 'ai-snapshot',
+          'scope-review': 'social-science-field'
+        };
+        var mappedValue = paramMap[dataType];
+        if (mappedValue) {
+          dropdown.value = mappedValue;
+        }
+      }
+      scrollToSection('#contact');
+    });
+  });
+
   /* ── Intersection Observer: fade-in on scroll ─────────────── */
   const observerOptions = {
     threshold: 0.08,
@@ -162,7 +199,7 @@
   }, observerOptions);
 
   document.querySelectorAll(
-    '.area-card, .feature-card, .leader-profile, .advisory-card, .work-card, .pathway-step'
+    '.area-card, .feature-card, .leader-profile, .advisory-card, .work-card, .pathway-step, .trigger-item, .brief-card, .start-here__card, .evidence-block'
   ).forEach((el, i) => {
     el.style.transitionDelay = `${(i % 3) * 80}ms`;
     el.classList.add('fade-up');
