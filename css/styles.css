@@ -1105,6 +1105,17 @@ h1, h2, h3, h4, h5 {
 .contact-detail__value a:hover { color: var(--color-accent); }
 
 /* Form */
+.contact-form__intro {
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.7);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-4);
+}
+
+.contact-form__intro:last-of-type {
+  margin-bottom: var(--space-8);
+}
+
 .contact-form {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--color-border-dark);
@@ -1989,7 +2000,7 @@ h1, h2, h3, h4, h5 {
 
 .start-here__cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
 }
 
@@ -2034,6 +2045,10 @@ h1, h2, h3, h4, h5 {
   .area-cards--four {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .start-here__cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2051,6 +2066,11 @@ h1, h2, h3, h4, h5 {
 
   .start-here__cards {
     grid-template-columns: 1fr;
+  }
+
+  .contact-form__intro {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
   }
 
   .trigger-item {
