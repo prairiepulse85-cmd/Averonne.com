@@ -73,8 +73,8 @@
   --space-32: 8rem;
 
   /* Section rhythm */
-  --section-padding-y:      6rem;
-  --section-padding-y-sm:   4rem;
+  --section-padding-y:      4.5rem;
+  --section-padding-y-sm:   3.5rem;
   --section-padding-x:      2rem;
 
   /* Container */
@@ -218,7 +218,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .section-header {
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-10);
 }
 
 /* -- Buttons -------------------------------------------------- */
@@ -269,11 +269,32 @@ h1, h2, h3, h4, h5 {
   color: var(--color-accent);
 }
 
+/* Focus ring: navy on light surfaces (3:1+ against warm white),
+   light-blue on navy surfaces. Colour is never the only indicator —
+   a visible offset outline is always shown. */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 3px;
+}
+
+.section--dark a:focus-visible,
+.section--dark button:focus-visible,
+.section--dark input:focus-visible,
+.section--dark select:focus-visible,
+.section--dark textarea:focus-visible,
+.contact a:focus-visible,
+.contact button:focus-visible,
+.contact input:focus-visible,
+.contact select:focus-visible,
+.contact textarea:focus-visible,
+.nav a:focus-visible,
+.nav button:focus-visible,
+.nav__mobile a:focus-visible,
+.footer a:focus-visible {
   outline: 3px solid var(--color-muted-dark);
   outline-offset: 3px;
 }
@@ -456,7 +477,7 @@ textarea:focus-visible {
   z-index: 1;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-24) var(--section-padding-x) var(--space-20);
+  padding: var(--space-16) var(--section-padding-x) var(--space-12);
 }
 
 .hero__label {
@@ -495,7 +516,7 @@ textarea:focus-visible {
   color: var(--color-ink);
   max-width: 620px;
   line-height: var(--line-height-loose);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-5);
 }
 
 .hero__actions {
@@ -509,12 +530,12 @@ textarea:focus-visible {
   width: 48px;
   height: 3px;
   background: var(--color-accent);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-5);
   border-radius: 2px;
 }
 
 /* -- How Averonne Helps --------------------------------------- */
-.research-areas {
+.how-we-help-section {
   background: var(--color-bg-surface);
 }
 
@@ -528,7 +549,7 @@ textarea:focus-visible {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
+  padding: 1.75rem;
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
@@ -623,7 +644,7 @@ textarea:focus-visible {
 }
 
 .feature-card {
-  padding: var(--space-8);
+  padding: 1.75rem;
   background: rgba(250,250,250,0.04);
   border: 1px solid var(--color-border-dark);
   border-radius: var(--radius-lg);
@@ -699,7 +720,7 @@ textarea:focus-visible {
   color: var(--color-muted-dark);
   font-size: var(--font-size-sm);
   text-align: center;
-  padding: var(--space-8);
+  padding: 1.75rem;
 }
 
 .photo-placeholder-icon {
@@ -842,7 +863,7 @@ textarea:focus-visible {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
+  padding: 1.75rem;
   transition: all var(--transition-base);
 }
 
@@ -907,7 +928,7 @@ textarea:focus-visible {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--color-border-dark);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
+  padding: 1.75rem;
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
@@ -1003,7 +1024,7 @@ textarea:focus-visible {
 .pathway-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
   position: relative;
 }
 
@@ -1013,7 +1034,7 @@ textarea:focus-visible {
 
 .pathway-step {
   text-align: center;
-  padding: var(--space-8) var(--space-6);
+  padding: 1.75rem var(--space-6);
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -1124,7 +1145,7 @@ textarea:focus-visible {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--color-border-dark);
   border-radius: var(--radius-xl);
-  padding: var(--space-10);
+  padding: var(--space-8);
 }
 
 .form-row {
@@ -1436,17 +1457,11 @@ textarea:focus-visible {
 /* -- Responsive ----------------------------------------------- */
 @media (max-width: 1024px) {
   :root {
-    --section-padding-y: 5rem;
+    --section-padding-y: 4rem;
   }
 
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .feature-grid--2x2 { grid-template-columns: repeat(2, 1fr); }
-  .feature-grid--2x2 .feature-card:nth-child(1),
-  .feature-grid--2x2 .feature-card:nth-child(2),
-  .feature-grid--2x2 .feature-card:nth-child(3),
-  .feature-grid--2x2 .feature-card:nth-child(4) {
-    grid-column: auto;
-  }
 
   .leader-profile {
     grid-template-columns: 200px 1fr;
@@ -1469,7 +1484,7 @@ textarea:focus-visible {
 
 @media (max-width: 768px) {
   :root {
-    --section-padding-y: 4rem;
+    --section-padding-y: 3rem;
     --section-padding-x: 1.25rem;
     --nav-height: 64px;
   }
@@ -1485,13 +1500,6 @@ textarea:focus-visible {
 
   .feature-grid,
   .feature-grid--2x2 { grid-template-columns: 1fr; }
-
-  .feature-grid--2x2 .feature-card:nth-child(1),
-  .feature-grid--2x2 .feature-card:nth-child(2),
-  .feature-grid--2x2 .feature-card:nth-child(3),
-  .feature-grid--2x2 .feature-card:nth-child(4) {
-    grid-column: 1;
-  }
 
   .leader-profile {
     grid-template-columns: 1fr;
@@ -1530,7 +1538,7 @@ textarea:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 .audience-pill {
@@ -1576,18 +1584,26 @@ textarea:focus-visible {
   border-top-color: rgba(255,255,255,0.1);
 }
 
+/* -- Why Averonne grid (4 cards, calm 2x2) ------------------ */
+.feature-grid--2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 /* -- Leadership Profiles (Tier 1) --------------------------- */
 .leadership-profiles {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
-  margin-bottom: var(--space-12);
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
 }
 
 .leader-profile {
   display: grid;
   grid-template-columns: 220px 1fr;
-  gap: var(--space-8);
+  gap: var(--space-6);
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
@@ -1629,7 +1645,7 @@ textarea:focus-visible {
 }
 
 .leader-profile__content {
-  padding: var(--space-8);
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1702,7 +1718,7 @@ textarea:focus-visible {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
+  padding: 1.75rem;
   transition: all var(--transition-base);
 }
 
@@ -1807,6 +1823,12 @@ textarea:focus-visible {
   background: var(--color-bg-surface);
 }
 
+/* Two related trigger sections share a background — collapse the
+   doubled gap between them into a single section gap. */
+.when-you-need + .when-you-need {
+  padding-top: 0;
+}
+
 .trigger-list {
   display: flex;
   flex-direction: column;
@@ -1876,33 +1898,28 @@ textarea:focus-visible {
   color: var(--color-muted-dark);
 }
 
+/* -- The Averonne Use-Case Delivery Brief (Warm White) ------ */
 .research-brief {
   background: var(--color-bg-surface);
-}
-
-/* -- The Averonne Research Brief ---------------------------- */
-.research-brief .section-intro {
-  color: var(--color-text-secondary);
 }
 
 .brief-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
-  margin-bottom: var(--space-8);
 }
 
 .brief-card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
+  padding: 1.75rem;
 }
 
 .brief-card__title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  color: var(--color-navy);
   margin-bottom: var(--space-2);
 }
 
@@ -1921,7 +1938,7 @@ textarea:focus-visible {
 
 .brief-card__item {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   padding: var(--space-2) 0;
   border-bottom: 1px solid var(--color-border);
 }
@@ -1930,23 +1947,8 @@ textarea:focus-visible {
   border-bottom: none;
 }
 
-.brief-note {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-loose);
-  text-align: center;
-  font-style: italic;
-}
-
-/* -- Why Averonne - 4-card grid ---------------------------- */
-.feature-grid--2x2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 960px;
-}
-
-.feature-grid--2x2 .feature-card {
-  grid-column: auto;
-}
+/* -- Why Averonne - 5-card grid ---------------------------- */
+/* With 5 cards: 3 on top row, 2 on bottom - centered */
 
 /* -- Leader Profile Scope Line ----------------------------- */
 .leader-profile__scope {
@@ -1969,7 +1971,7 @@ textarea:focus-visible {
 /* -- CIMMYT Evidence Block --------------------------------- */
 .evidence-block {
   margin-top: var(--space-12);
-  padding: var(--space-8);
+  padding: 1.75rem;
   background: var(--color-bg-white);
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-bg-primary);
@@ -2065,7 +2067,7 @@ textarea:focus-visible {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
+  padding: 1.75rem;
   transition: all var(--transition-base);
 }
 
@@ -2137,3 +2139,194 @@ textarea:focus-visible {
     align-items: flex-start;
   }
 }
+
+/* -- Sample Feasibility Dossier (illustrative) -------------- */
+.sample-dossier {
+  background: var(--color-bg-surface);
+}
+
+.dossier {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.dossier__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-5);
+}
+
+.dossier__doc-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.dossier__badge {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: var(--space-1) var(--space-3);
+  background: rgba(13,43,85,0.05);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.dossier__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  line-height: 1.35;
+  margin-bottom: var(--space-6);
+}
+
+.dossier__rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.dossier__row {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: var(--space-5);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dossier__row:first-child { padding-top: 0; }
+
+.dossier__key {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding-top: 2px;
+}
+
+.dossier__val {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-normal);
+}
+
+.dossier__verdict {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+}
+
+.dossier__foot {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  line-height: var(--line-height-normal);
+  margin-top: var(--space-5);
+}
+
+/* -- Footer data & confidentiality note --------------------- */
+.footer__data-note {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.footer__data-note p {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-dark);
+  line-height: var(--line-height-loose);
+  max-width: 760px;
+}
+
+@media (max-width: 640px) {
+  .dossier__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+/* -- Legal / Privacy page ----------------------------------- */
+.nav__back {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgba(255,255,255,0.85);
+  transition: color var(--transition-fast);
+}
+.nav__back:hover { color: var(--color-warm-white); }
+
+.legal-hero {
+  background: var(--color-bg-surface);
+  padding: calc(var(--nav-height) + var(--space-16)) 0 var(--space-10);
+}
+
+.legal-hero__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.legal-hero__title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-4);
+}
+
+.legal-hero__meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.legal-body {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.legal-body h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin: var(--space-10) 0 var(--space-4);
+}
+
+.legal-body h2:first-child { margin-top: 0; }
+
+.legal-body p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-4);
+}
+
+.legal-body ul {
+  list-style: disc;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.legal-body li {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-2);
+}
+
+.legal-body a {
+  color: var(--color-navy);
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+}
+.legal-body a:hover { color: var(--color-accent-hover); }
+
+.legal-body strong { color: var(--color-text-primary); font-weight: var(--font-weight-semibold); }
