@@ -11,11 +11,13 @@
     getComputedStyle(document.documentElement).getPropertyValue('--nav-height') || '72'
   );
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function scrollToSection(id) {
     const target = document.querySelector(id);
     if (!target) return;
     const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT - 12;
-    window.scrollTo({ top, behavior: 'smooth' });
+    window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -222,13 +224,15 @@
     });
   }, observerOptions);
 
-  document.querySelectorAll(
-    '.area-card, .feature-card, .leader-profile, .advisory-card, .work-card, .pathway-step, .trigger-item, .brief-card, .start-here__card, .example-card, .evidence-block'
-  ).forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 3) * 80}ms`;
-    el.classList.add('fade-up');
-    observer.observe(el);
-  });
+  if (!prefersReducedMotion) {
+    document.querySelectorAll(
+      '.area-card, .feature-card, .leader-profile, .advisory-card, .work-card, .pathway-step, .trigger-item, .brief-card, .start-here__card, .example-card, .evidence-block'
+    ).forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 3) * 80}ms`;
+      el.classList.add('fade-up');
+      observer.observe(el);
+    });
+  }
 
   /* ── Animate-in CSS injected via JS ─────────────────────── */
   const animStyle = document.createElement('style');
