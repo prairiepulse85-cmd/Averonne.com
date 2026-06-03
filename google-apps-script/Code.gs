@@ -243,29 +243,17 @@ function escHtml(str) {
 }
 
 function formatEngagementType(val) {
-  var updatedMap = {
+  var map = {
     'ai-use-case-diagnostic': 'AI Use-Case Diagnostic',
     'ai-feasibility': 'AI Use-Case Diagnostic',
     'ai-workflow-build': 'AI Workflow Build',
-    'research-evidence-automation': 'Research / Evidence Automation',
     'pharma-healthcare-knowledge': 'Pharma / Healthcare Knowledge Workflow',
     'pharma-healthcare': 'Pharma / Healthcare Knowledge Workflow',
     'life-sciences-operations': 'Life Sciences Operations Workflow',
+    'research-evidence-automation': 'Research / Evidence Automation',
     'ai-governance-documentation': 'AI Governance / Documentation',
     'dashboard-reporting': 'Dashboard / Reporting Workflow',
-    'not-sure': 'Not sure yet',
-    'social-science-policy': 'Social Science / Policy Research',
-    'field-research': 'Field Research / Data Collection',
-    'research-translation': 'Research Translation / Evidence Review',
-    'ai-evaluation': 'AI Evaluation'
-  };
-  if (updatedMap[val]) return updatedMap[val];
-  var map = {
-    'academic-research':      'Academic Research Collaboration',
-    'methodological-advisory':'Methodological Advisory',
-    'field-research':         'Field Research Support',
-    'publication-documentation': 'Publication & Documentation',
-    'other':                  'Other / Not yet defined'
+    'not-sure': 'Not sure yet'
   };
   return map[val] || val || '-';
 }
