@@ -269,11 +269,32 @@ h1, h2, h3, h4, h5 {
   color: var(--color-accent);
 }
 
+/* Focus ring: navy on light surfaces (3:1+ against warm white),
+   light-blue on navy surfaces. Colour is never the only indicator —
+   a visible offset outline is always shown. */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 3px;
+}
+
+.section--dark a:focus-visible,
+.section--dark button:focus-visible,
+.section--dark input:focus-visible,
+.section--dark select:focus-visible,
+.section--dark textarea:focus-visible,
+.contact a:focus-visible,
+.contact button:focus-visible,
+.contact input:focus-visible,
+.contact select:focus-visible,
+.contact textarea:focus-visible,
+.nav a:focus-visible,
+.nav button:focus-visible,
+.nav__mobile a:focus-visible,
+.footer a:focus-visible {
   outline: 3px solid var(--color-muted-dark);
   outline-offset: 3px;
 }
@@ -1441,12 +1462,6 @@ textarea:focus-visible {
 
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .feature-grid--2x2 { grid-template-columns: repeat(2, 1fr); }
-  .feature-grid--2x2 .feature-card:nth-child(1),
-  .feature-grid--2x2 .feature-card:nth-child(2),
-  .feature-grid--2x2 .feature-card:nth-child(3),
-  .feature-grid--2x2 .feature-card:nth-child(4) {
-    grid-column: auto;
-  }
 
   .leader-profile {
     grid-template-columns: 200px 1fr;
@@ -1485,13 +1500,6 @@ textarea:focus-visible {
 
   .feature-grid,
   .feature-grid--2x2 { grid-template-columns: 1fr; }
-
-  .feature-grid--2x2 .feature-card:nth-child(1),
-  .feature-grid--2x2 .feature-card:nth-child(2),
-  .feature-grid--2x2 .feature-card:nth-child(3),
-  .feature-grid--2x2 .feature-card:nth-child(4) {
-    grid-column: 1;
-  }
 
   .leader-profile {
     grid-template-columns: 1fr;
@@ -1574,6 +1582,14 @@ textarea:focus-visible {
 
 .area-card--featured .area-card__track-record {
   border-top-color: rgba(255,255,255,0.1);
+}
+
+/* -- Why Averonne grid (4 cards, calm 2x2) ------------------ */
+.feature-grid--2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 /* -- Leadership Profiles (Tier 1) --------------------------- */
@@ -1876,20 +1892,15 @@ textarea:focus-visible {
   color: var(--color-muted-dark);
 }
 
+/* -- The Averonne Use-Case Delivery Brief (Warm White) ------ */
 .research-brief {
   background: var(--color-bg-surface);
-}
-
-/* -- The Averonne Research Brief ---------------------------- */
-.research-brief .section-intro {
-  color: var(--color-text-secondary);
 }
 
 .brief-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
-  margin-bottom: var(--space-8);
+  gap: var(--space-8);
 }
 
 .brief-card {
@@ -1902,7 +1913,7 @@ textarea:focus-visible {
 .brief-card__title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  color: var(--color-navy);
   margin-bottom: var(--space-2);
 }
 
@@ -1921,7 +1932,7 @@ textarea:focus-visible {
 
 .brief-card__item {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   padding: var(--space-2) 0;
   border-bottom: 1px solid var(--color-border);
 }
@@ -1930,23 +1941,8 @@ textarea:focus-visible {
   border-bottom: none;
 }
 
-.brief-note {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-loose);
-  text-align: center;
-  font-style: italic;
-}
-
-/* -- Why Averonne - 4-card grid ---------------------------- */
-.feature-grid--2x2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 960px;
-}
-
-.feature-grid--2x2 .feature-card {
-  grid-column: auto;
-}
+/* -- Why Averonne - 5-card grid ---------------------------- */
+/* With 5 cards: 3 on top row, 2 on bottom - centered */
 
 /* -- Leader Profile Scope Line ----------------------------- */
 .leader-profile__scope {
