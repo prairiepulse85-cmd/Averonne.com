@@ -70,8 +70,14 @@
   const mobileMenu = document.querySelector('.nav__mobile');
 
   function closeMobileMenu() {
-    if (hamburger) hamburger.classList.remove('open');
-    if (mobileMenu) mobileMenu.classList.remove('open');
+    if (hamburger) {
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    if (mobileMenu) {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
     document.body.style.overflow = '';
   }
 
@@ -79,6 +85,8 @@
     hamburger.addEventListener('click', () => {
       const isOpen = hamburger.classList.toggle('open');
       mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
@@ -153,8 +161,16 @@
     const dropdown = document.getElementById('contact-type');
     if (dropdown) {
       const paramMap = {
-        'ai-snapshot': 'ai-snapshot',
-        'scope-review': 'social-science-field'
+        'ai-use-case-diagnostic': 'ai-use-case-diagnostic',
+        'ai-feasibility': 'ai-use-case-diagnostic',
+        'ai-workflow-build': 'ai-workflow-build',
+        'research-evidence-automation': 'research-evidence-automation',
+        'pharma-healthcare-knowledge': 'pharma-healthcare-knowledge',
+        'pharma-healthcare': 'pharma-healthcare-knowledge',
+        'life-sciences-operations': 'life-sciences-operations',
+        'ai-governance-documentation': 'ai-governance-documentation',
+        'dashboard-reporting': 'dashboard-reporting',
+        'not-sure': 'not-sure'
       };
       const mappedValue = paramMap[typeParam];
       if (mappedValue) {
@@ -164,15 +180,23 @@
   }
 
   /* ── Start Here CTA: scroll to contact + pre-select type ─── */
-  document.querySelectorAll('.start-here__cta').forEach(function(cta) {
+  document.querySelectorAll('.use-case-cta').forEach(function(cta) {
     cta.addEventListener('click', function(e) {
       e.preventDefault();
       var dataType = cta.getAttribute('data-type');
       var dropdown = document.getElementById('contact-type');
       if (dropdown && dataType) {
         var paramMap = {
-          'ai-snapshot': 'ai-snapshot',
-          'scope-review': 'social-science-field'
+          'ai-use-case-diagnostic': 'ai-use-case-diagnostic',
+          'ai-feasibility': 'ai-use-case-diagnostic',
+          'ai-workflow-build': 'ai-workflow-build',
+          'research-evidence-automation': 'research-evidence-automation',
+          'pharma-healthcare-knowledge': 'pharma-healthcare-knowledge',
+          'pharma-healthcare': 'pharma-healthcare-knowledge',
+          'life-sciences-operations': 'life-sciences-operations',
+          'ai-governance-documentation': 'ai-governance-documentation',
+          'dashboard-reporting': 'dashboard-reporting',
+          'not-sure': 'not-sure'
         };
         var mappedValue = paramMap[dataType];
         if (mappedValue) {
@@ -199,7 +223,7 @@
   }, observerOptions);
 
   document.querySelectorAll(
-    '.area-card, .feature-card, .leader-profile, .advisory-card, .work-card, .pathway-step, .trigger-item, .brief-card, .start-here__card, .evidence-block'
+    '.area-card, .feature-card, .leader-profile, .advisory-card, .work-card, .pathway-step, .trigger-item, .brief-card, .start-here__card, .example-card, .evidence-block'
   ).forEach((el, i) => {
     el.style.transitionDelay = `${(i % 3) * 80}ms`;
     el.classList.add('fade-up');

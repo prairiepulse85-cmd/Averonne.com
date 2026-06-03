@@ -1,20 +1,20 @@
 /**
- * Averonne Research and Consulting — Contact Form Handler
+ * Averonne Research and Consulting - Contact Form Handler
  * Google Apps Script Web App
  *
  * SETUP INSTRUCTIONS:
- * 1. Go to script.google.com → New project → paste this code
+ * 1. Go to script.google.com -> New project -> paste this code
  * 2. Edit SHEET_ID and EMAIL_RECIPIENTS below
- * 3. Click Deploy → New deployment → Web app
+ * 3. Click Deploy -> New deployment -> Web app
  *    - Execute as: Me
  *    - Who has access: Anyone
- * 4. Copy the deployment URL → paste into index.html on the <form data-script-url="...">
+ * 4. Copy the deployment URL -> paste into index.html on the <form data-script-url="...">
  *
  * Each submission is logged to a Google Sheet row AND
  * an email notification is sent to the recipients below.
  */
 
-// ── Configuration ──────────────────────────────────────────────
+// -- Configuration ----------------------------------------------
 var CONFIG = {
   // Paste your Google Sheet ID here (from the Sheet URL: /d/SHEET_ID/edit)
   // Leave blank to auto-create a new sheet on first run
@@ -32,7 +32,7 @@ var CONFIG = {
   // Site name shown in notification emails
   SITE_NAME: 'Averonne Research and Consulting'
 };
-// ───────────────────────────────────────────────────────────────
+// ---------------------------------------------------------------
 
 
 /**
@@ -52,7 +52,7 @@ function doPost(e) {
     // Send email notification
     sendNotificationEmail(params, formType);
 
-    // Return success (opaque with no-cors fetch — processed server-side)
+    // Return success (opaque with no-cors fetch - processed server-side)
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'success' }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -77,7 +77,7 @@ function logToSheet(params, formType) {
     ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
   } else {
     // Auto-create a spreadsheet on first run and log the ID
-    ss = SpreadsheetApp.create('Averonne — Form Submissions');
+    ss = SpreadsheetApp.create('Averonne - Form Submissions');
     Logger.log('Created spreadsheet. Add this ID to CONFIG.SHEET_ID: ' + ss.getId());
     CONFIG.SHEET_ID = ss.getId();
   }
@@ -97,7 +97,9 @@ function logToSheet(params, formType) {
     } else {
       sheet.appendRow([
         'Timestamp', 'Form Type', 'Name', 'Organisation',
-        'Email', 'Engagement Type', 'Description', 'Timeline'
+        'Email', 'Industry / Sector', 'Function / Team', 'Use Case Type',
+        'Description', 'Current Process', 'Data / Source Type',
+        'Desired Output', 'Timeline', 'Support Needed'
       ]);
     }
     // Bold the header row
@@ -126,9 +128,15 @@ function logToSheet(params, formType) {
       params.name              || '',
       params.organisation      || '',
       params.email             || '',
+      params.industry_sector   || '',
+      params.function_team     || '',
       params.engagement_type   || '',
       params.description       || '',
-      params.timeline          || ''
+      params.current_process   || '',
+      params.data_source_type  || '',
+      params.desired_output    || '',
+      params.timeline          || '',
+      params.support_needed    || ''
     ]);
   }
 }
@@ -141,10 +149,10 @@ function sendNotificationEmail(params, formType) {
   var subject, body;
 
   if (formType === 'internship') {
-    subject = '[' + CONFIG.SITE_NAME + '] New Internship Application — ' + (params.name || 'Unknown');
+    subject = '[' + CONFIG.SITE_NAME + '] New Internship Application - ' + (params.name || 'Unknown');
     body = buildInternshipEmailBody(params);
   } else {
-    subject = '[' + CONFIG.SITE_NAME + '] New Consultation Inquiry — ' + (params.name || 'Unknown');
+    subject = '[' + CONFIG.SITE_NAME + '] New AI Use-Case Inquiry - ' + (params.name || 'Unknown');
     body = buildContactEmailBody(params);
   }
 
@@ -161,24 +169,32 @@ function sendNotificationEmail(params, formType) {
  */
 function buildContactEmailBody(p) {
   return [
-    '<div style="font-family:Arial,sans-serif;max-width:600px;color:#1a1a1a;">',
-    '<div style="background:#0d1b2a;padding:24px 28px;border-radius:8px 8px 0 0;">',
-    '  <h2 style="color:#c9a84c;margin:0;font-size:18px;">New Consultation Inquiry</h2>',
-    '  <p style="color:rgba(255,255,255,0.6);margin:4px 0 0;font-size:13px;">Averonne Research and Consulting</p>',
+    '<div style="font-family:Arial,sans-serif;max-width:600px;color:#1C1C1E;">',
+    '<div style="background:#0D2B55;padding:24px 28px;border-radius:8px 8px 0 0;">',
+    '  <h2 style="color:#FAFAFA;margin:0;font-size:18px;">New AI Use-Case Inquiry</h2>',
+    '  <p style="color:#C8D5E8;margin:4px 0 0;font-size:13px;">Averonne Research and Consulting</p>',
     '</div>',
-    '<div style="border:1px solid #e2e8f0;border-top:none;padding:28px;border-radius:0 0 8px 8px;">',
-    row('Name',             p.name             || '—'),
-    row('Organisation',     p.organisation     || '—'),
-    row('Email',            p.email            || '—'),
-    row('Engagement Type',  formatEngagementType(p.engagement_type)),
+    '<div style="border:1px solid #C8D5E8;border-top:none;padding:28px;border-radius:0 0 8px 8px;">',
+    '<table style="border-collapse:collapse;width:100%;">',
+    row('Name',             p.name             || '-'),
+    row('Organisation',     p.organisation     || '-'),
+    row('Email',            p.email            || '-'),
+    row('Industry / Sector', p.industry_sector  || '-'),
+    row('Function / Team',   p.function_team    || '-'),
+    row('Use Case Type',     formatEngagementType(p.engagement_type)),
+    row('Data / Source Type', p.data_source_type || '-'),
+    row('Desired Output',    p.desired_output   || '-'),
     row('Timeline',         p.timeline         || 'Not specified'),
-    '<tr><td colspan="2" style="padding:8px 0;"><hr style="border:none;border-top:1px solid #e2e8f0;"/></td></tr>',
-    '<tr><td style="padding:6px 12px 6px 0;font-size:13px;font-weight:600;color:#666;white-space:nowrap;vertical-align:top;">Description</td>',
-    '<td style="padding:6px 0;font-size:14px;color:#1a1a1a;line-height:1.7;">' + escHtml(p.description || '—') + '</td></tr>',
+    row('Support Needed',    formatSupportNeeded(p.support_needed)),
+    '<tr><td colspan="2" style="padding:8px 0;"><hr style="border:none;border-top:1px solid #C8D5E8;"/></td></tr>',
+    '<tr><td style="padding:6px 12px 6px 0;font-size:13px;font-weight:600;color:#5A6675;white-space:nowrap;vertical-align:top;">Workflow / Use Case</td>',
+    '<td style="padding:6px 0;font-size:14px;color:#1C1C1E;line-height:1.7;">' + escHtml(p.description || '-') + '</td></tr>',
+    '<tr><td style="padding:6px 12px 6px 0;font-size:13px;font-weight:600;color:#5A6675;white-space:nowrap;vertical-align:top;">Current Process</td>',
+    '<td style="padding:6px 0;font-size:14px;color:#1C1C1E;line-height:1.7;">' + escHtml(p.current_process || '-') + '</td></tr>',
     '</table>',
-    '<p style="margin:20px 0 0;font-size:12px;color:#aaa;">',
+    '<p style="margin:20px 0 0;font-size:12px;color:#5A6675;">',
     'Reply directly to this email to respond, or log in to your ',
-    '<a href="https://docs.google.com/spreadsheets" style="color:#c9a84c;">Google Sheet</a> to view all submissions.',
+    '<a href="https://docs.google.com/spreadsheets" style="color:#0D2B55;">Google Sheet</a> to view all submissions.',
     '</p>',
     '</div></div>'
   ].join('');
@@ -190,18 +206,18 @@ function buildContactEmailBody(p) {
  */
 function buildInternshipEmailBody(p) {
   return [
-    '<div style="font-family:Arial,sans-serif;max-width:600px;color:#1a1a1a;">',
-    '<div style="background:#0d1b2a;padding:24px 28px;border-radius:8px 8px 0 0;">',
-    '  <h2 style="color:#c9a84c;margin:0;font-size:18px;">New Internship Application</h2>',
-    '  <p style="color:rgba(255,255,255,0.6);margin:4px 0 0;font-size:13px;">Averonne Research and Consulting</p>',
+    '<div style="font-family:Arial,sans-serif;max-width:600px;color:#1C1C1E;">',
+    '<div style="background:#0D2B55;padding:24px 28px;border-radius:8px 8px 0 0;">',
+    '  <h2 style="color:#FAFAFA;margin:0;font-size:18px;">New Internship Application</h2>',
+    '  <p style="color:#C8D5E8;margin:4px 0 0;font-size:13px;">Averonne Research and Consulting</p>',
     '</div>',
-    '<div style="border:1px solid #e2e8f0;border-top:none;padding:28px;border-radius:0 0 8px 8px;">',
+    '<div style="border:1px solid #C8D5E8;border-top:none;padding:28px;border-radius:0 0 8px 8px;">',
     '<table style="border-collapse:collapse;width:100%;">',
-    row('Full Name',        p.name        || '—'),
-    row('Institution',      p.institution || '—'),
-    row('Email',            p.email       || '—'),
-    row('Programme',        p.programme   || '—'),
-    row('Area of Interest', p.interest    || '—'),
+    row('Full Name',        p.name        || '-'),
+    row('Institution',      p.institution || '-'),
+    row('Email',            p.email       || '-'),
+    row('Programme',        p.programme   || '-'),
+    row('Area of Interest', p.interest    || '-'),
     p.note ? row('Note', p.note) : '',
     '</table>',
     '</div></div>'
@@ -209,12 +225,12 @@ function buildInternshipEmailBody(p) {
 }
 
 
-// ── Helpers ────────────────────────────────────────────────────
+// -- Helpers ----------------------------------------------------
 
 function row(label, value) {
   return '<tr>' +
-    '<td style="padding:6px 12px 6px 0;font-size:13px;font-weight:600;color:#666;white-space:nowrap;">' + label + '</td>' +
-    '<td style="padding:6px 0;font-size:14px;color:#1a1a1a;">' + escHtml(value) + '</td>' +
+    '<td style="padding:6px 12px 6px 0;font-size:13px;font-weight:600;color:#5A6675;white-space:nowrap;">' + label + '</td>' +
+    '<td style="padding:6px 0;font-size:14px;color:#1C1C1E;">' + escHtml(value) + '</td>' +
     '</tr>';
 }
 
@@ -227,6 +243,23 @@ function escHtml(str) {
 }
 
 function formatEngagementType(val) {
+  var updatedMap = {
+    'ai-use-case-diagnostic': 'AI Use-Case Diagnostic',
+    'ai-feasibility': 'AI Use-Case Diagnostic',
+    'ai-workflow-build': 'AI Workflow Build',
+    'research-evidence-automation': 'Research / Evidence Automation',
+    'pharma-healthcare-knowledge': 'Pharma / Healthcare Knowledge Workflow',
+    'pharma-healthcare': 'Pharma / Healthcare Knowledge Workflow',
+    'life-sciences-operations': 'Life Sciences Operations Workflow',
+    'ai-governance-documentation': 'AI Governance / Documentation',
+    'dashboard-reporting': 'Dashboard / Reporting Workflow',
+    'not-sure': 'Not sure yet',
+    'social-science-policy': 'Social Science / Policy Research',
+    'field-research': 'Field Research / Data Collection',
+    'research-translation': 'Research Translation / Evidence Review',
+    'ai-evaluation': 'AI Evaluation'
+  };
+  if (updatedMap[val]) return updatedMap[val];
   var map = {
     'academic-research':      'Academic Research Collaboration',
     'methodological-advisory':'Methodological Advisory',
@@ -234,5 +267,14 @@ function formatEngagementType(val) {
     'publication-documentation': 'Publication & Documentation',
     'other':                  'Other / Not yet defined'
   };
-  return map[val] || val || '—';
+  return map[val] || val || '-';
+}
+function formatSupportNeeded(val) {
+  var map = {
+    'feasibility-only': 'Feasibility only',
+    'build-support': 'Build support if feasible',
+    'both': 'Feasibility and build support',
+    'not-sure': 'Not sure yet'
+  };
+  return map[val] || val || '-';
 }

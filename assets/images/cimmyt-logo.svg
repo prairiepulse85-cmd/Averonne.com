@@ -2,12 +2,12 @@
   <rect width="220" height="64" fill="none"/>
   <!-- CIMMYT wheat icon -->
   <g transform="translate(4,4)">
-    <ellipse cx="28" cy="32" rx="22" ry="26" fill="#e8750a" opacity="0.9"/>
-    <text x="28" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" font-weight="bold">CI</text>
-    <text x="28" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" font-weight="bold">MMY</text>
-    <text x="28" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">T</text>
+    <ellipse cx="28" cy="32" rx="22" ry="26" fill="#0D2B55" opacity="0.95"/>
+    <text x="28" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FAFAFA" font-weight="bold">CI</text>
+    <text x="28" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FAFAFA" font-weight="bold">MMY</text>
+    <text x="28" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#C8D5E8">T</text>
   </g>
-  <text x="62" y="26" font-family="Arial, sans-serif" font-size="14" fill="#e8750a" font-weight="bold">CIMMYT</text>
-  <text x="62" y="40" font-family="Arial, sans-serif" font-size="7" fill="#444">International Maize and Wheat</text>
-  <text x="62" y="52" font-family="Arial, sans-serif" font-size="7" fill="#444">Improvement Center</text>
+  <text x="62" y="26" font-family="Arial, sans-serif" font-size="14" fill="#0D2B55" font-weight="bold">CIMMYT</text>
+  <text x="62" y="40" font-family="Arial, sans-serif" font-size="7" fill="#5A6675">International Maize and Wheat</text>
+  <text x="62" y="52" font-family="Arial, sans-serif" font-size="7" fill="#5A6675">Improvement Center</text>
 </svg>

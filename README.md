@@ -1,8 +1,8 @@
 # Averonne Research and Consulting
 
-**averonne.com** — Research-Led. Collaboration-Driven.
+**averonne.com** — Research-led AI implementation.
 
-Single-page website for Averonne Research and Consulting.
+Single-page website for Averonne Research and Consulting, positioned around AI use-case diagnostics, governed workflow implementation, evidence automation, MVP planning, and handover documentation for evidence-heavy teams.
 
 ## Structure
 
@@ -29,7 +29,7 @@ No build step required. Open `index.html` in a browser.
 
 Place `malka-zehra.jpg` in `assets/images/`, then in `index.html` uncomment:
 ```html
-<img src="assets/images/malka-zehra.jpg" alt="Malka Zehra — Social Sciences Research Lead" class="leader-card__photo" />
+<img src="assets/images/malka-zehra.jpg" alt="Malka Zehra, Research, Field Evidence and Social Systems Lead" class="leader-card__photo" />
 ```
 And remove the placeholder `<div class="leader-card__photo-placeholder">` block.
 
