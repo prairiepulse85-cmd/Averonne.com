@@ -50,4 +50,4 @@ Then update the `<img src>` in `index.html` accordingly.
 ## Contact
 
 - General: headoffice@averonne.com
-- Research Lead: Malkaz@averonne.com
+- Research Lead: malkaz@averonne.com

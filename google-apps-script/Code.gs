@@ -25,7 +25,7 @@ var CONFIG = {
 
   // Email addresses to notify on each new submission
   EMAIL_RECIPIENTS: [
-    'Malkaz@averonne.com',
+    'malkaz@averonne.com',
     'headoffice@averonne.com'
   ],
 
