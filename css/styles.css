@@ -2252,3 +2252,81 @@ textarea:focus-visible {
     gap: var(--space-1);
   }
 }
+
+/* -- Legal / Privacy page ----------------------------------- */
+.nav__back {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgba(255,255,255,0.85);
+  transition: color var(--transition-fast);
+}
+.nav__back:hover { color: var(--color-warm-white); }
+
+.legal-hero {
+  background: var(--color-bg-surface);
+  padding: calc(var(--nav-height) + var(--space-16)) 0 var(--space-10);
+}
+
+.legal-hero__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.legal-hero__title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-4);
+}
+
+.legal-hero__meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.legal-body {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.legal-body h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy);
+  margin: var(--space-10) 0 var(--space-4);
+}
+
+.legal-body h2:first-child { margin-top: 0; }
+
+.legal-body p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-4);
+}
+
+.legal-body ul {
+  list-style: disc;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.legal-body li {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-2);
+}
+
+.legal-body a {
+  color: var(--color-navy);
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+}
+.legal-body a:hover { color: var(--color-accent-hover); }
+
+.legal-body strong { color: var(--color-text-primary); font-weight: var(--font-weight-semibold); }
