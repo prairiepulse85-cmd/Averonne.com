@@ -1620,7 +1620,7 @@ textarea:focus-visible {
   position: relative;
   overflow: hidden;
   background: var(--color-bg-surface);
-  min-height: 300px;
+  min-height: 240px;
 }
 
 .leader-profile__photo {
@@ -2330,3 +2330,57 @@ textarea:focus-visible {
 .legal-body a:hover { color: var(--color-accent-hover); }
 
 .legal-body strong { color: var(--color-text-primary); font-weight: var(--font-weight-semibold); }
+
+/* -- Skip link (keyboard accessibility) --------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 2000;
+  background: var(--color-navy);
+  color: var(--color-warm-white);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+.skip-link:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
+
+/* -- Problem section: two-column layout --------------------- */
+.problem-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.problem-col__heading {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy);
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .problem-cols {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* -- Respect reduced-motion preferences --------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
