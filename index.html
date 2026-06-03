@@ -18,9 +18,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- ==========================================================
        NAVIGATION
@@ -58,6 +61,8 @@
     <a href="#pathway" class="nav__mobile-link">How We Work</a>
     <a href="#contact" class="nav__mobile-cta">Get in Touch</a>
   </div>
+
+  <main id="main-content" tabindex="-1">
 
 
   <!-- ==========================================================
@@ -103,7 +108,7 @@
        SECTION - WHEN YOU NEED AVERONNE
   ========================================================== -->
   <section id="when-you-need" class="section when-you-need">
-    <div class="container container--narrow">
+    <div class="container">
 
       <header class="section-header">
         <h2 class="section-heading">When one workflow is too important for vague AI experiments</h2>
@@ -112,32 +117,28 @@
         </p>
       </header>
 
-      <div class="trigger-list">
-        <div class="trigger-item">&rarr; When a workflow is painful but the AI use case is still unclear</div>
-        <div class="trigger-item">&rarr; When documents, data, research, or field inputs need to become decision-ready outputs</div>
-        <div class="trigger-item">&rarr; When teams need repeatable briefs, dashboards, trackers, or internal knowledge systems</div>
-        <div class="trigger-item">&rarr; When AI needs documentation, review points, and operating boundaries</div>
-      </div>
+      <div class="problem-cols">
 
-    </div>
-  </section>
+        <div class="problem-col">
+          <h3 class="problem-col__heading">When teams come to us</h3>
+          <div class="trigger-list">
+            <div class="trigger-item">&rarr; A workflow is painful but the AI use case is still unclear</div>
+            <div class="trigger-item">&rarr; Documents, data, research, or field inputs need to become decision-ready outputs</div>
+            <div class="trigger-item">&rarr; Teams need repeatable briefs, dashboards, trackers, or internal knowledge systems</div>
+            <div class="trigger-item">&rarr; AI needs documentation, review points, and operating boundaries</div>
+          </div>
+        </div>
 
+        <div class="problem-col">
+          <h3 class="problem-col__heading">What goes wrong without it</h3>
+          <div class="trigger-list">
+            <div class="trigger-item">&rarr; Generic tools produce outputs that cannot be trusted, repeated, or explained</div>
+            <div class="trigger-item">&rarr; Teams automate unclear workflows and create more review burden</div>
+            <div class="trigger-item">&rarr; Data, source quality, ownership, and approval paths remain undefined</div>
+            <div class="trigger-item">&rarr; Pilots look impressive but fail inside day-to-day operations</div>
+          </div>
+        </div>
 
-  <!-- ==========================================================
-       SECTION - WHAT HAPPENS IF YOU GET THIS WRONG
-  ========================================================== -->
-  <section id="get-this-wrong" class="section when-you-need">
-    <div class="container container--narrow">
-
-      <header class="section-header">
-        <h2 class="section-heading">What goes wrong when AI is added without workflow discipline</h2>
-      </header>
-
-      <div class="trigger-list">
-        <div class="trigger-item">&rarr; Generic tools produce outputs that cannot be trusted, repeated, or explained</div>
-        <div class="trigger-item">&rarr; Teams automate unclear workflows and create more review burden</div>
-        <div class="trigger-item">&rarr; Data, source quality, ownership, and approval paths remain undefined</div>
-        <div class="trigger-item">&rarr; Pilots look impressive but fail inside day-to-day operations</div>
       </div>
 
     </div>
@@ -834,6 +835,9 @@
       </div><!-- /.contact__grid -->
     </div>
   </section>
+
+
+  </main>
 
 
   <!-- ==========================================================
