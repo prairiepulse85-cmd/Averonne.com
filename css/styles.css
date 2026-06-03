@@ -619,33 +619,20 @@ textarea:focus-visible {
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  gap: var(--space-8);
 }
 
 .feature-card {
   padding: var(--space-8);
-  background: rgba(255,255,255,0.04);
+  background: rgba(250,250,250,0.04);
   border: 1px solid var(--color-border-dark);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
 }
 
 .feature-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(13,43,85,0.14);
-}
-
-.feature-card__icon {
-  width: 48px;
-  height: 48px;
-  background: rgba(13,43,85,0.08);
-  border: 1px solid rgba(13,43,85,0.12);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--space-4);
-  font-size: 1.5rem;
+  background: rgba(250,250,250,0.07);
+  border-color: rgba(250,250,250,0.24);
 }
 
 .feature-card__title {
@@ -1457,8 +1444,7 @@ textarea:focus-visible {
   .feature-grid--2x2 .feature-card:nth-child(1),
   .feature-grid--2x2 .feature-card:nth-child(2),
   .feature-grid--2x2 .feature-card:nth-child(3),
-  .feature-grid--2x2 .feature-card:nth-child(4),
-  .feature-grid--2x2 .feature-card:nth-child(5) {
+  .feature-grid--2x2 .feature-card:nth-child(4) {
     grid-column: auto;
   }
 
@@ -1503,8 +1489,7 @@ textarea:focus-visible {
   .feature-grid--2x2 .feature-card:nth-child(1),
   .feature-grid--2x2 .feature-card:nth-child(2),
   .feature-grid--2x2 .feature-card:nth-child(3),
-  .feature-grid--2x2 .feature-card:nth-child(4),
-  .feature-grid--2x2 .feature-card:nth-child(5) {
+  .feature-grid--2x2 .feature-card:nth-child(4) {
     grid-column: 1;
   }
 
@@ -1589,25 +1574,6 @@ textarea:focus-visible {
 
 .area-card--featured .area-card__track-record {
   border-top-color: rgba(255,255,255,0.1);
-}
-
-/* -- Why Averonne grid (5 cards: 3 top, 2 bottom centered) -- */
-.feature-grid--2x2 {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.feature-grid--2x2 .feature-card:nth-child(1),
-.feature-grid--2x2 .feature-card:nth-child(2),
-.feature-grid--2x2 .feature-card:nth-child(3) {
-  grid-column: span 2;
-}
-
-.feature-grid--2x2 .feature-card:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-.feature-grid--2x2 .feature-card:nth-child(5) {
-  grid-column: 4 / span 2;
 }
 
 /* -- Leadership Profiles (Tier 1) --------------------------- */
@@ -1910,9 +1876,13 @@ textarea:focus-visible {
   color: var(--color-muted-dark);
 }
 
+.research-brief {
+  background: var(--color-bg-surface);
+}
+
 /* -- The Averonne Research Brief ---------------------------- */
 .research-brief .section-intro {
-  color: var(--color-text-light-muted);
+  color: var(--color-text-secondary);
 }
 
 .brief-cards {
@@ -1923,8 +1893,8 @@ textarea:focus-visible {
 }
 
 .brief-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--color-border-dark);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
 }
@@ -1932,13 +1902,13 @@ textarea:focus-visible {
 .brief-card__title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-warm-white);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-2);
 }
 
 .brief-card__scope {
   font-size: var(--font-size-sm);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-secondary);
   font-style: italic;
   margin-bottom: var(--space-5);
 }
@@ -1951,9 +1921,9 @@ textarea:focus-visible {
 
 .brief-card__item {
   font-size: var(--font-size-sm);
-  color: var(--color-muted-dark);
+  color: var(--color-text-secondary);
   padding: var(--space-2) 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .brief-card__item:last-child {
@@ -1962,14 +1932,21 @@ textarea:focus-visible {
 
 .brief-note {
   font-size: var(--font-size-sm);
-  color: var(--color-text-light-muted);
+  color: var(--color-text-secondary);
   line-height: var(--line-height-loose);
   text-align: center;
   font-style: italic;
 }
 
-/* -- Why Averonne - 5-card grid ---------------------------- */
-/* With 5 cards: 3 on top row, 2 on bottom - centered */
+/* -- Why Averonne - 4-card grid ---------------------------- */
+.feature-grid--2x2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 960px;
+}
+
+.feature-grid--2x2 .feature-card {
+  grid-column: auto;
+}
 
 /* -- Leader Profile Scope Line ----------------------------- */
 .leader-profile__scope {
